@@ -32,8 +32,8 @@ if ( is_archive() ) {
 				?>
             </div>
             <div class="col-lg-9">
-            <div class="container">
-            <div class="row products">
+                <div class="container">
+                    <div class="row products">
 
 			<?php
 		}
@@ -50,8 +50,8 @@ if ( is_archive() ) {
 		woocommerce_product_loop_end();
 		?>
 
-        </div>
-        </div>
+                </div>
+            </div>
         </div>
 
 		<?php
