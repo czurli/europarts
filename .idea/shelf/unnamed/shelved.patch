@@ -1,0 +1,1283 @@
+Index: web/app/themes/europarts/woocommerce/global/quantity-input.php
+===================================================================
+diff --git a/web/app/themes/europarts/woocommerce/global/quantity-input.php b/web/app/themes/europarts/woocommerce/global/quantity-input.php
+deleted file mode 100644
+--- a/web/app/themes/europarts/woocommerce/global/quantity-input.php	(revision 39a9718016a84434f15c45fbb61d7bfd1bdb66d4)
++++ /dev/null	(revision 39a9718016a84434f15c45fbb61d7bfd1bdb66d4)
+@@ -1,49 +0,0 @@
+-<?php
+-/**
+- * Product quantity inputs
+- *
+- * This template can be overridden by copying it to yourtheme/woocommerce/global/quantity-input.php.
+- *
+- * HOWEVER, on occasion WooCommerce will need to update template files and you
+- * (the theme developer) will need to copy the new files to your theme to
+- * maintain compatibility. We try to do this as little as possible, but it does
+- * happen. When this occurs the version of the template file will be bumped and
+- * the readme will list any important changes.
+- *
+- * @see     https://docs.woocommerce.com/document/template-structure/
+- * @package WooCommerce\Templates
+- * @version 4.0.0
+- */
+-
+-defined( 'ABSPATH' ) || exit;
+-
+-if ( $max_value && $min_value === $max_value ) {
+-	?>
+-	<div class="quantity hidden">
+-		<input type="hidden" id="<?php echo esc_attr( $input_id ); ?>" class="qty" name="<?php echo esc_attr( $input_name ); ?>" value="<?php echo esc_attr( $min_value ); ?>" />
+-	</div>
+-	<?php
+-} else {
+-	/* translators: %s: Quantity. */
+-	$label = ! empty( $args['product_name'] ) ? sprintf( esc_html__( '%s quantity', 'woocommerce' ), wp_strip_all_tags( $args['product_name'] ) ) : esc_html__( 'Quantity', 'woocommerce' );
+-	?>
+-	<div class="quantity">
+-		<?php do_action( 'woocommerce_before_quantity_input_field' ); ?>
+-		<label class="screen-reader-text" for="<?php echo esc_attr( $input_id ); ?>"><?php echo esc_attr( $label ); ?></label>
+-		<input
+-			type="number"
+-			id="<?php echo esc_attr( $input_id ); ?>"
+-			class="<?php echo esc_attr( join( ' ', (array) $classes ) ); ?>"
+-			step="<?php echo esc_attr( $step ); ?>"
+-			min="<?php echo esc_attr( $min_value ); ?>"
+-			max="<?php echo esc_attr( 0 < $max_value ? $max_value : '' ); ?>"
+-			name="<?php echo esc_attr( $input_name ); ?>"
+-			value="<?php echo esc_attr( $input_value ); ?>"
+-			title="<?php echo esc_attr_x( 'Qty', 'Product quantity input tooltip', 'woocommerce' ); ?>"
+-			size="4"
+-			placeholder="<?php echo esc_attr( $placeholder ); ?>"
+-			inputmode="<?php echo esc_attr( $inputmode ); ?>" />
+-		<?php do_action( 'woocommerce_after_quantity_input_field' ); ?>
+-	</div>
+-	<?php
+-}
+Index: web/app/themes/europarts/woocommerce/single-product/pippo.css
+===================================================================
+diff --git a/web/app/themes/europarts/woocommerce/single-product/pippo.css b/web/app/themes/europarts/woocommerce/single-product/pippo.css
+deleted file mode 100644
+--- a/web/app/themes/europarts/woocommerce/single-product/pippo.css	(revision 39a9718016a84434f15c45fbb61d7bfd1bdb66d4)
++++ /dev/null	(revision 39a9718016a84434f15c45fbb61d7bfd1bdb66d4)
+@@ -1,1128 +0,0 @@
+-<
+-style type
+-
+-=
+-"text/css"
+->
+-#iubenda-cs-banner {
+-    font-size: 15px !important;
+-    background: 0 0 !important;
+-    line-height: 1.4 !important;
+-    position: fixed !important;
+-    z-index: 99999998 !important;
+-    top: 0 !important;
+-    left: 0 !important;
+-    width: 100% !important;
+-    height: 100% !important;
+-    border: 0 !important;
+-    margin: 0 !important;
+-    padding: 0 !important;
+-    overflow: hidden !important;
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important;
+-    will-change: opacity, visibility;
+-    opacity: 0 !important;
+-    visibility: hidden !important;
+-    pointer-events: none !important;
+-    -webkit-transition: opacity .4s ease, visibility .4s ease !important;
+-    -o-transition: opacity .4s ease, visibility .4s ease !important;
+-    transition: opacity .4s ease, visibility .4s ease !important
+-}
+-
+-#iubenda-cs-banner .iubenda-banner-content:not(.iubenda-custom-content) *, #iubenda-cs-banner [class*=" iub"], #iubenda-cs-banner [class^=iub] {
+-    font-size: 100% !important;
+-    width: auto !important;
+-    -webkit-appearance: none !important;
+-    -moz-appearance: none !important;
+-    appearance: none !important;
+-    background: 0 0 !important;
+-    -webkit-box-sizing: border-box !important;
+-    box-sizing: border-box !important;
+-    -webkit-tap-highlight-color: transparent !important;
+-    -webkit-backface-visibility: hidden !important;
+-    backface-visibility: hidden !important;
+-    font-family: -apple-system, sans-serif !important;
+-    text-decoration: none !important;
+-    color: currentColor !important;
+-    background-attachment: scroll !important;
+-    background-color: transparent !important;
+-    background-image: none !important;
+-    background-position: 0 0 !important;
+-    background-repeat: repeat !important;
+-    border: 0 !important;
+-    border-color: #000 !important;
+-    border-color: currentColor !important;
+-    border-radius: 0 !important;
+-    border-style: none !important;
+-    border-width: medium !important;
+-    bottom: auto !important;
+-    clear: none !important;
+-    clip: auto !important;
+-    counter-increment: none !important;
+-    counter-reset: none !important;
+-    direction: inherit !important;
+-    float: none !important;
+-    font-style: inherit !important;
+-    font-variant: normal !important;
+-    font-weight: inherit !important;
+-    height: auto !important;
+-    left: auto !important;
+-    letter-spacing: normal !important;
+-    line-height: inherit !important;
+-    list-style-type: inherit !important;
+-    list-style-position: outside !important;
+-    list-style-image: none !important;
+-    margin: 0 !important;
+-    max-height: none !important;
+-    max-width: none !important;
+-    min-height: 0 !important;
+-    min-width: 0 !important;
+-    opacity: 1;
+-    outline: 0 !important;
+-    overflow: visible !important;
+-    padding: 0 !important;
+-    position: static !important;
+-    quotes: "" "" !important;
+-    right: auto !important;
+-    table-layout: auto !important;
+-    text-align: left !important;
+-    text-indent: 0 !important;
+-    text-transform: none !important;
+-    top: auto !important;
+-    unicode-bidi: normal !important;
+-    vertical-align: baseline !important;
+-    visibility: inherit !important;
+-    white-space: normal !important;
+-    width: auto !important;
+-    word-spacing: normal !important;
+-    z-index: auto !important;
+-    background-origin: padding-box !important;
+-    background-origin: padding-box !important;
+-    background-clip: border-box !important;
+-    background-size: auto !important;
+-    -o-border-image: none !important;
+-    border-image: none !important;
+-    border-radius: 0 !important;
+-    border-radius: 0 !important;
+-    -webkit-box-shadow: none !important;
+-    box-shadow: none !important;
+-    -webkit-column-count: auto !important;
+-    -moz-column-count: auto !important;
+-    column-count: auto !important;
+-    -webkit-column-gap: normal !important;
+-    -moz-column-gap: normal !important;
+-    column-gap: normal !important;
+-    -webkit-column-rule: medium none #000 !important;
+-    -moz-column-rule: medium none #000 !important;
+-    column-rule: medium none #000 !important;
+-    -webkit-column-span: none !important;
+-    -moz-column-span: none !important;
+-    column-span: none !important;
+-    -webkit-column-width: auto !important;
+-    -moz-column-width: auto !important;
+-    column-width: auto !important;
+-    -webkit-font-feature-settings: normal !important;
+-    font-feature-settings: normal !important;
+-    overflow-x: visible !important;
+-    overflow-y: visible !important;
+-    -webkit-hyphens: manual !important;
+-    -ms-hyphens: manual !important;
+-    hyphens: manual !important;
+-    -webkit-perspective: none !important;
+-    perspective: none !important;
+-    -webkit-perspective-origin: 50% 50% !important;
+-    perspective-origin: 50% 50% !important;
+-    text-shadow: none !important;
+-    -webkit-transition: all 0s ease 0s !important;
+-    -o-transition: all 0s ease 0s !important;
+-    transition: all 0s ease 0s !important;
+-    -webkit-transform: none !important;
+-    -ms-transform: none !important;
+-    transform: none !important;
+-    -webkit-transform-origin: 50% 50% !important;
+-    -ms-transform-origin: 50% 50% !important;
+-    transform-origin: 50% 50% !important;
+-    -webkit-transform-style: flat !important;
+-    transform-style: flat !important;
+-    word-break: normal !important;
+-    -ms-text-size-adjust: 100%;
+-    -webkit-text-size-adjust: 100%
+-}
+-
+-#iubenda-cs-banner .iub-popover-trigger {
+-    display: inline-block !important;
+-    text-decoration: underline !important;
+-    -webkit-text-decoration-style: dashed !important;
+-    text-decoration-style: dashed !important;
+-    position: relative !important;
+-    margin-right: 16px !important;
+-    cursor: pointer !important;
+-    line-height: 1.25 !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-trigger:after, #iubenda-cs-banner .iub-popover-trigger:before {
+-    content: "";
+-    display: inline-block;
+-    width: 14px;
+-    height: 14px;
+-    border-radius: 12px;
+-    vertical-align: middle;
+-    background-size: 4px;
+-    position: absolute;
+-    left: calc(100% + 2px);
+-    top: 3px
+-}
+-
+-#iubenda-cs-banner .iub-popover-trigger:before {
+-    background-color: currentColor;
+-    opacity: .35
+-}
+-
+-#iubenda-cs-banner .iub-popover-trigger:after {
+-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='7' height='13' viewBox='0 0 7 13'%3E%3Cg fill='%23FFF' fill-rule='evenodd'%3E%3Cpath d='M2.779 1.288a1.287 1.287 0 112.574 0 1.287 1.287 0 01-2.574 0zM5.467 10.422l.903 1.851-.7.341a2.496 2.496 0 01-3.545-2.717l.818-3.252a.42.42 0 00-.178-.382.422.422 0 00-.452-.041l-.844.412-.902-1.852.843-.412a2.491 2.491 0 012.576.233 2.49 2.49 0 01.989 2.389 1.105 1.105 0 01-.02.095l-.817 3.253a.42.42 0 00.178.382c.08.059.244.142.451.041l.7-.341z'/%3E%3C/g%3E%3C/svg%3E");
+-    background-position: center;
+-    background-repeat: no-repeat
+-}
+-
+-#iubenda-cs-banner .iub-popover {
+-    position: absolute !important;
+-    top: 24px !important;
+-    bottom: 0 !important;
+-    left: 0 !important;
+-    right: 0 !important;
+-    border-radius: 4px !important;
+-    background-color: #fff !important;
+-    color: #222 !important;
+-    z-index: 2 !important;
+-    -webkit-box-shadow: 0 0 32px rgba(0, 0, 0, .1) !important;
+-    box-shadow: 0 0 32px rgba(0, 0, 0, .1) !important;
+-    opacity: 0 !important;
+-    visibility: hidden !important;
+-    -webkit-transform: translateY(24px) !important;
+-    -ms-transform: translateY(24px) !important;
+-    transform: translateY(24px) !important;
+-    -webkit-transition: opacity .3s ease, visibility .3s ease, -webkit-transform .3s ease !important;
+-    transition: opacity .3s ease, visibility .3s ease, -webkit-transform .3s ease !important;
+-    -o-transition: opacity .3s ease, visibility .3s ease, transform .3s ease !important;
+-    transition: opacity .3s ease, visibility .3s ease, transform .3s ease !important;
+-    transition: opacity .3s ease, visibility .3s ease, transform .3s ease, -webkit-transform .3s ease !important;
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important;
+-    -webkit-box-orient: vertical !important;
+-    -webkit-box-direction: normal !important;
+-    -ms-flex-direction: column !important;
+-    flex-direction: column !important;
+-    z-index: 99 !important;
+-    pointer-events: none !important;
+-    overflow: hidden !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-header {
+-    -ms-flex-negative: 0 !important;
+-    flex-shrink: 0 !important;
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important;
+-    -webkit-box-pack: justify !important;
+-    -ms-flex-pack: justify !important;
+-    justify-content: space-between !important;
+-    z-index: 1 !important;
+-    -webkit-box-shadow: 0 16px 16px #fff !important;
+-    box-shadow: 0 16px 16px #fff !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-header > * {
+-    padding: 24px !important;
+-    padding-bottom: 0 !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-header-title {
+-    font-size: 18px !important;
+-    font-weight: 700 !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-header-close {
+-    font-size: 24px !important;
+-    font-weight: 300 !important;
+-    cursor: pointer !important;
+-    line-height: 1 !important;
+-    position: relative !important;
+-    top: -2px !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content {
+-    font-size: 14px !important;
+-    -webkit-box-flex: 1 !important;
+-    -ms-flex: 1 !important;
+-    flex: 1 !important;
+-    font-weight: 300 !important;
+-    line-height: 1.5 !important;
+-    position: relative !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content > div {
+-    padding: 0 24px !important;
+-    overflow-y: auto !important;
+-    height: 100% !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content > div:after, #iubenda-cs-banner .iub-popover-content > div:before {
+-    content: "";
+-    display: block;
+-    height: 24px
+-}
+-
+-#iubenda-cs-banner .iub-popover-content h3 {
+-    margin-bottom: 16px !important;
+-    font-weight: 700 !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content p:not(:last-of-type) {
+-    margin-bottom: 16px !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content a {
+-    text-decoration: underline !important;
+-    cursor: pointer !important;
+-    opacity: .8 !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content b, #iubenda-cs-banner .iub-popover-content strong {
+-    font-weight: 700 !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content em, #iubenda-cs-banner .iub-popover-content i {
+-    font-style: italic !important
+-}
+-
+-#iubenda-cs-banner .iub-popover-content:after {
+-    position: absolute;
+-    content: "";
+-    display: block;
+-    height: 24px;
+-    pointer-events: none;
+-    left: 0;
+-    right: 0;
+-    bottom: 0;
+-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 0)), to(white));
+-    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0, #fff 100%);
+-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0, #fff 100%)
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating .iub-popover {
+-    left: 8px !important;
+-    right: 8px !important
+-}
+-
+-@media (min-width: 640px) {
+-    #iubenda-cs-banner.iubenda-cs-default .iub-popover {
+-        max-width: 992px !important;
+-        margin: 0 auto !important
+-    }
+-
+-    #iubenda-cs-banner.iubenda-cs-default.iubenda-cs-top .iub-popover {
+-        top: 16px !important;
+-        bottom: -16px !important
+-    }
+-
+-    #iubenda-cs-banner.iubenda-cs-default.iubenda-cs-bottom .iub-popover {
+-        top: -16px !important;
+-        bottom: 16px !important
+-    }
+-}
+-
+-#iubenda-cs-banner.iub-popover-visible .iub-popover {
+-    opacity: 1 !important;
+-    visibility: visible !important;
+-    -webkit-transform: translateY(0) !important;
+-    -ms-transform: translateY(0) !important;
+-    transform: translateY(0) !important;
+-    pointer-events: auto !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-overlay:before {
+-    content: "" !important;
+-    position: fixed !important;
+-    top: 0 !important;
+-    left: 0 !important;
+-    width: 100% !important;
+-    height: 100% !important;
+-    background-color: rgba(0, 0, 0, .5) !important;
+-    z-index: 1 !important;
+-    pointer-events: auto !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-center {
+-    -webkit-box-align: center !important;
+-    -ms-flex-align: center !important;
+-    align-items: center !important;
+-    -webkit-box-pack: center !important;
+-    -ms-flex-pack: center !important;
+-    justify-content: center !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-top {
+-    -webkit-box-align: start !important;
+-    -ms-flex-align: start !important;
+-    align-items: flex-start !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-bottom {
+-    -webkit-box-align: end !important;
+-    -ms-flex-align: end !important;
+-    align-items: flex-end !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-left {
+-    -webkit-box-pack: start !important;
+-    -ms-flex-pack: start !important;
+-    justify-content: flex-start !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-right {
+-    -webkit-box-pack: end !important;
+-    -ms-flex-pack: end !important;
+-    justify-content: flex-end !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-visible {
+-    opacity: 1 !important;
+-    visibility: visible !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-visible .iubenda-cs-container {
+-    pointer-events: auto !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-slidein .iubenda-cs-container {
+-    -webkit-transition: -webkit-transform .4s ease !important;
+-    transition: -webkit-transform .4s ease !important;
+-    -o-transition: transform .4s ease !important;
+-    transition: transform .4s ease !important;
+-    transition: transform .4s ease, -webkit-transform .4s ease !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-slidein.iubenda-cs-top .iubenda-cs-container {
+-    -webkit-transform: translateY(-48px) !important;
+-    -ms-transform: translateY(-48px) !important;
+-    transform: translateY(-48px) !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-slidein.iubenda-cs-bottom .iubenda-cs-container {
+-    -webkit-transform: translateY(48px) !important;
+-    -ms-transform: translateY(48px) !important;
+-    transform: translateY(48px) !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-slidein.iubenda-cs-visible .iubenda-cs-container {
+-    -webkit-transform: translateY(0) !important;
+-    -ms-transform: translateY(0) !important;
+-    transform: translateY(0) !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-container {
+-    position: relative !important;
+-    z-index: 2 !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-brand {
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important;
+-    padding: 16px !important;
+-    -ms-flex-negative: 0 !important;
+-    flex-shrink: 0 !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-brand > div {
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important;
+-    -webkit-box-pack: start !important;
+-    -ms-flex-pack: start !important;
+-    justify-content: flex-start !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-brand img {
+-    max-width: 192px !important;
+-    max-height: 56px !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-content {
+-    position: relative !important;
+-    z-index: 1 !important;
+-    overflow: hidden !important;
+-    -webkit-transition: -webkit-transform .4s ease !important;
+-    transition: -webkit-transform .4s ease !important;
+-    -o-transition: transform .4s ease !important;
+-    transition: transform .4s ease !important;
+-    transition: transform .4s ease, -webkit-transform .4s ease !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-rationale {
+-    position: relative !important;
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important;
+-    -webkit-box-orient: vertical !important;
+-    -webkit-box-direction: normal !important;
+-    -ms-flex-direction: column !important;
+-    flex-direction: column !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-close-btn {
+-    position: absolute !important;
+-    top: -2px !important;
+-    padding: 16px !important;
+-    right: 0 !important;
+-    min-width: 48px !important;
+-    height: 48px !important;
+-    font-size: 24px !important;
+-    line-height: 0 !important;
+-    font-weight: lighter !important;
+-    cursor: pointer !important;
+-    text-align: center !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-close-btn:hover {
+-    opacity: .5 !important
+-}
+-
+-#iubenda-cs-banner .iubenda-banner-content {
+-    font-weight: 300 !important;
+-    margin: 16px !important;
+-    margin-bottom: 0 !important;
+-    -webkit-box-flex: 1 !important;
+-    -ms-flex: 1 1 auto !important;
+-    flex: 1 1 auto !important;
+-    overflow-y: auto !important;
+-    mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0, #000 16px) !important;
+-    -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0, #000 16px) !important;
+-    padding-bottom: 32px !important
+-}
+-
+-#iubenda-cs-banner .iubenda-banner-content-padded {
+-    padding-right: 32px !important
+-}
+-
+-#iubenda-cs-banner .iubenda-banner-content a {
+-    cursor: pointer !important;
+-    color: currentColor !important;
+-    opacity: .7 !important;
+-    text-decoration: underline !important
+-}
+-
+-#iubenda-cs-banner .iubenda-banner-content a:hover {
+-    opacity: 1 !important
+-}
+-
+-#iubenda-cs-banner #iubenda-cs-title {
+-    font-weight: 700 !important;
+-    margin-bottom: 16px !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group {
+-    margin: 16px !important;
+-    z-index: 1 !important;
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important;
+-    margin-top: 0 !important;
+-    -ms-flex-negative: 0 !important;
+-    flex-shrink: 0 !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group > div {
+-    display: -webkit-box !important;
+-    display: -ms-flexbox !important;
+-    display: flex !important
+-}
+-
+-@media (min-width: 640px) {
+-    #iubenda-cs-banner .iubenda-cs-opt-group {
+-        -webkit-box-align: center !important;
+-        -ms-flex-align: center !important;
+-        align-items: center !important;
+-        -webkit-box-pack: justify !important;
+-        -ms-flex-pack: justify !important;
+-        justify-content: space-between !important
+-    }
+-
+-    #iubenda-cs-banner .iubenda-cs-opt-group-custom {
+-        margin-right: auto !important;
+-        -ms-flex-item-align: start !important;
+-        align-self: start !important;
+-        -webkit-box-pack: start !important;
+-        -ms-flex-pack: start !important;
+-        justify-content: flex-start !important
+-    }
+-
+-    #iubenda-cs-banner .iubenda-cs-opt-group-consent {
+-        margin-left: auto !important;
+-        -ms-flex-item-align: end !important;
+-        align-self: end !important;
+-        -webkit-box-pack: end !important;
+-        -ms-flex-pack: end !important;
+-        justify-content: flex-end !important
+-    }
+-}
+-
+-@media (max-width: 639px) {
+-    #iubenda-cs-banner .iubenda-cs-opt-group {
+-        margin: 12px !important;
+-        -webkit-box-orient: vertical !important;
+-        -webkit-box-direction: normal !important;
+-        -ms-flex-direction: column !important;
+-        flex-direction: column !important
+-    }
+-
+-    #iubenda-cs-banner .iubenda-cs-opt-group-custom {
+-        -webkit-box-ordinal-group: 3;
+-        -ms-flex-order: 2;
+-        order: 2
+-    }
+-
+-    #iubenda-cs-banner .iubenda-cs-opt-group-consent {
+-        -webkit-box-ordinal-group: 2;
+-        -ms-flex-order: 1;
+-        order: 1
+-    }
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group button {
+-    -webkit-appearance: none !important;
+-    -moz-appearance: none !important;
+-    appearance: none !important;
+-    padding: 8px 32px !important;
+-    border-radius: 64px !important;
+-    cursor: pointer !important;
+-    font-weight: 700 !important;
+-    font-size: 100% !important;
+-    margin-top: 4px !important;
+-    margin-bottom: 4px !important;
+-    text-align: center !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group button:focus {
+-    opacity: .8 !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group button:hover {
+-    opacity: .5 !important
+-}
+-
+-@media (min-width: 640px) {
+-    #iubenda-cs-banner .iubenda-cs-opt-group button:not(:last-of-type) {
+-        margin-right: 8px !important
+-    }
+-}
+-
+-@media (max-width: 639px) {
+-    #iubenda-cs-banner .iubenda-cs-opt-group button {
+-        padding: 8px 24px !important;
+-        width: 100% !important;
+-        display: block;
+-        text-align: center !important;
+-        margin: 6px 3px !important
+-    }
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default .iubenda-cs-brand {
+-    margin: 0 -8px 0 !important
+-}
+-
+-@media (max-width: 991px) {
+-    #iubenda-cs-banner.iubenda-cs-default .iubenda-cs-brand {
+-        margin: -8px -8px 0 !important
+-    }
+-}
+-
+-@media (min-width: 992px) {
+-    #iubenda-cs-banner.iubenda-cs-default .iubenda-cs-brand div {
+-        margin: 0 auto !important;
+-        width: calc(992px - 32px) !important
+-    }
+-}
+-
+-@media (max-width: 991px) {
+-    #iubenda-cs-banner.iubenda-cs-default .iubenda-cs-brand div {
+-        margin: 0 8px !important
+-    }
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default .iubenda-cs-container {
+-    width: 100% !important
+-}
+-
+-@media (min-width: 992px) {
+-    #iubenda-cs-banner.iubenda-cs-default .iubenda-cs-rationale {
+-        width: 992px !important;
+-        margin: 16px auto !important
+-    }
+-}
+-
+-@media (max-width: 991px) {
+-    #iubenda-cs-banner.iubenda-cs-default .iubenda-cs-content {
+-        padding: 8px !important
+-    }
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating .iubenda-cs-brand {
+-    margin: -8px -8px 0 !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating .iubenda-cs-brand div {
+-    margin: 8px !important
+-}
+-
+-@media (min-width: 992px) {
+-    #iubenda-cs-banner.iubenda-cs-default-floating .iubenda-cs-container {
+-        width: 992px !important
+-    }
+-}
+-
+-@media (max-width: 991px) {
+-    #iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center.iubenda-cs-bottom .iubenda-cs-container, #iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center.iubenda-cs-top .iubenda-cs-container {
+-        width: 100% !important
+-    }
+-}
+-
+-@media (min-width: 640px) {
+-    #iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center:not(.iubenda-cs-top):not(.iubenda-cs-bottom) .iubenda-cs-container, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-bottom):not(.iubenda-cs-center) .iubenda-cs-container, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-top):not(.iubenda-cs-center) .iubenda-cs-container {
+-        width: 480px !important
+-    }
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center:not(.iubenda-cs-top):not(.iubenda-cs-bottom) .iubenda-cs-opt-group, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-bottom):not(.iubenda-cs-center) .iubenda-cs-opt-group, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-top):not(.iubenda-cs-center) .iubenda-cs-opt-group {
+-    -webkit-box-orient: vertical !important;
+-    -webkit-box-direction: normal !important;
+-    -ms-flex-direction: column !important;
+-    flex-direction: column !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center:not(.iubenda-cs-top):not(.iubenda-cs-bottom) .iubenda-cs-opt-group > div, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-bottom):not(.iubenda-cs-center) .iubenda-cs-opt-group > div, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-top):not(.iubenda-cs-center) .iubenda-cs-opt-group > div {
+-    width: 100% !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center:not(.iubenda-cs-top):not(.iubenda-cs-bottom) .iubenda-cs-opt-group button, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-bottom):not(.iubenda-cs-center) .iubenda-cs-opt-group button, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-top):not(.iubenda-cs-center) .iubenda-cs-opt-group button {
+-    display: block !important;
+-    width: 100% !important;
+-    text-align: center !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center:not(.iubenda-cs-top):not(.iubenda-cs-bottom) .iubenda-cs-opt-group-custom, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-bottom):not(.iubenda-cs-center) .iubenda-cs-opt-group-custom, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-top):not(.iubenda-cs-center) .iubenda-cs-opt-group-custom {
+-    -webkit-box-ordinal-group: 3;
+-    -ms-flex-order: 2;
+-    order: 2
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating.iubenda-cs-center:not(.iubenda-cs-top):not(.iubenda-cs-bottom) .iubenda-cs-opt-group-consent, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-bottom):not(.iubenda-cs-center) .iubenda-cs-opt-group-consent, #iubenda-cs-banner.iubenda-cs-default-floating:not(.iubenda-cs-top):not(.iubenda-cs-center) .iubenda-cs-opt-group-consent {
+-    -webkit-box-ordinal-group: 2;
+-    -ms-flex-order: 1;
+-    order: 1
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-default-floating .iubenda-cs-content {
+-    -webkit-box-shadow: 0 8px 48px rgba(0, 0, 0, .15) !important;
+-    box-shadow: 0 8px 48px rgba(0, 0, 0, .15) !important;
+-    padding: 8px !important
+-}
+-
+-@media (min-width: 992px) {
+-    #iubenda-cs-banner.iubenda-cs-default-floating .iubenda-cs-content {
+-        border-radius: 4px !important;
+-        margin: 16px !important
+-    }
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-fix-height .iubenda-cs-container, #iubenda-cs-banner.iubenda-cs-fix-height .iubenda-cs-content, #iubenda-cs-banner.iubenda-cs-fix-height .iubenda-cs-rationale {
+-    height: 100% !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-fix-height.iubenda-cs-default-floating .iubenda-cs-content {
+-    height: calc(100% - 32px) !important
+-}
+-
+-#iubenda-cs-banner.iubenda-cs-fix-height .iubenda-cs-brand img {
+-    max-width: 75% !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-content {
+-    background-color: #000 !important;
+-    color: #fff !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group {
+-    color: #000 !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group button {
+-    background-color: rgba(255, 255, 255, .1) !important;
+-    color: #fff !important
+-}
+-
+-#iubenda-cs-banner .iubenda-cs-opt-group button.iubenda-cs-btn-primary {
+-    background-color: #0073ce !important;
+-    color: #fff !important
+-}
+-
+-.iubenda-tp-btn:not([data-tp-nostyle]) {
+-    font-size: 100% !important;
+-    width: auto !important;
+-    -webkit-appearance: none !important;
+-    -moz-appearance: none !important;
+-    appearance: none !important;
+-    background: 0 0 !important;
+-    -webkit-box-sizing: border-box !important;
+-    box-sizing: border-box !important;
+-    -webkit-tap-highlight-color: transparent !important;
+-    -webkit-backface-visibility: hidden !important;
+-    backface-visibility: hidden !important;
+-    font-family: -apple-system, sans-serif !important;
+-    text-decoration: none !important;
+-    color: currentColor !important;
+-    background-attachment: scroll !important;
+-    background-color: transparent !important;
+-    background-image: none !important;
+-    background-position: 0 0 !important;
+-    background-repeat: repeat !important;
+-    border: 0 !important;
+-    border-color: #000 !important;
+-    border-color: currentColor !important;
+-    border-radius: 0 !important;
+-    border-style: none !important;
+-    border-width: medium !important;
+-    bottom: auto !important;
+-    clear: none !important;
+-    clip: auto !important;
+-    counter-increment: none !important;
+-    counter-reset: none !important;
+-    cursor: auto !important;
+-    direction: inherit !important;
+-    float: none !important;
+-    font-style: inherit !important;
+-    font-variant: normal !important;
+-    font-weight: inherit !important;
+-    height: auto !important;
+-    left: auto !important;
+-    letter-spacing: normal !important;
+-    line-height: inherit !important;
+-    list-style-type: inherit !important;
+-    list-style-position: outside !important;
+-    list-style-image: none !important;
+-    margin: 0 !important;
+-    max-height: none !important;
+-    max-width: none !important;
+-    min-height: 0 !important;
+-    min-width: 0 !important;
+-    opacity: 1;
+-    outline: 0 !important;
+-    overflow: visible !important;
+-    padding: 0 !important;
+-    position: static !important;
+-    quotes: "" "" !important;
+-    right: auto !important;
+-    table-layout: auto !important;
+-    text-align: left !important;
+-    text-indent: 0 !important;
+-    text-transform: none !important;
+-    top: auto !important;
+-    unicode-bidi: normal !important;
+-    vertical-align: baseline !important;
+-    visibility: inherit !important;
+-    white-space: normal !important;
+-    width: auto !important;
+-    word-spacing: normal !important;
+-    z-index: auto !important;
+-    background-origin: padding-box !important;
+-    background-origin: padding-box !important;
+-    background-clip: border-box !important;
+-    background-size: auto !important;
+-    -o-border-image: none !important;
+-    border-image: none !important;
+-    border-radius: 0 !important;
+-    border-radius: 0 !important;
+-    -webkit-box-shadow: none !important;
+-    box-shadow: none !important;
+-    -webkit-column-count: auto !important;
+-    -moz-column-count: auto !important;
+-    column-count: auto !important;
+-    -webkit-column-gap: normal !important;
+-    -moz-column-gap: normal !important;
+-    column-gap: normal !important;
+-    -webkit-column-rule: medium none #000 !important;
+-    -moz-column-rule: medium none #000 !important;
+-    column-rule: medium none #000 !important;
+-    -webkit-column-span: none !important;
+-    -moz-column-span: none !important;
+-    column-span: none !important;
+-    -webkit-column-width: auto !important;
+-    -moz-column-width: auto !important;
+-    column-width: auto !important;
+-    -webkit-font-feature-settings: normal !important;
+-    font-feature-settings: normal !important;
+-    overflow-x: visible !important;
+-    overflow-y: visible !important;
+-    -webkit-hyphens: manual !important;
+-    -ms-hyphens: manual !important;
+-    hyphens: manual !important;
+-    -webkit-perspective: none !important;
+-    perspective: none !important;
+-    -webkit-perspective-origin: 50% 50% !important;
+-    perspective-origin: 50% 50% !important;
+-    text-shadow: none !important;
+-    -webkit-transition: all 0s ease 0s !important;
+-    -o-transition: all 0s ease 0s !important;
+-    transition: all 0s ease 0s !important;
+-    -webkit-transform: none !important;
+-    -ms-transform: none !important;
+-    transform: none !important;
+-    -webkit-transform-origin: 50% 50% !important;
+-    -ms-transform-origin: 50% 50% !important;
+-    transform-origin: 50% 50% !important;
+-    -webkit-transform-style: flat !important;
+-    transform-style: flat !important;
+-    word-break: normal !important;
+-    -ms-text-size-adjust: 100%;
+-    -webkit-text-size-adjust: 100%;
+-    appearance: none !important;
+-    line-height: 34px !important;
+-    height: 34px !important;
+-    min-width: 34px !important;
+-    border-radius: 4px !important;
+-    cursor: pointer !important;
+-    font-weight: 700 !important;
+-    font-size: 14px !important;
+-    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, .15) !important;
+-    box-shadow: 0 0 0 1px rgba(0, 0, 0, .15) !important;
+-    color: rgba(0, 0, 0, .65) !important;
+-    background-color: #fff !important;
+-    display: inline-block !important;
+-    vertical-align: middle !important
+-}
+-
+-.iubenda-tp-btn[data-tp-icon] {
+-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%231CC691' fill-rule='evenodd' d='M16 7a4 4 0 0 1 2.627 7.016L19.5 25h-7l.873-10.984A4 4 0 0 1 16 7z'/%3E%3C/svg%3E") !important;
+-    background-repeat: no-repeat !important;
+-    background-size: 32px 32px !important;
+-    background-position: top .5px left 1px !important
+-}
+-
+-.iubenda-tp-btn[data-tp-circle] {
+-    border-radius: 32px !important
+-}
+-
+-.iubenda-tp-btn[data-tp-label]:after {
+-    content: attr(data-tp-label) !important;
+-    padding: 0 16px !important;
+-    white-space: nowrap !important
+-}
+-
+-.iubenda-tp-btn[data-tp-label][data-tp-icon]:after {
+-    padding-left: calc(16px + 8px + 8px) !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float] {
+-    position: fixed !important;
+-    z-index: 2147483647 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float]:not([data-tp-anchored]) {
+-    margin: 16px !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-anchored] {
+-    margin: 0 16px !important;
+-    border-radius: 6px !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover]):not([data-tp-label])[data-tp-float=center-left], .iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover]):not([data-tp-label])[data-tp-float=center-right], .iubenda-tp-btn[data-tp-float][data-tp-anchored][data-tp-hover][data-tp-float=center-left], .iubenda-tp-btn[data-tp-float][data-tp-anchored][data-tp-hover][data-tp-float=center-right] {
+-    margin: 0 !important;
+-    top: 75% !important;
+-    -webkit-transform: translateY(-50%) !important;
+-    -ms-transform: translateY(-50%) !important;
+-    transform: translateY(-50%) !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover]):not([data-tp-label])[data-tp-float=center-left], .iubenda-tp-btn[data-tp-float][data-tp-anchored][data-tp-hover][data-tp-float=center-left] {
+-    left: 0 !important;
+-    border-top-left-radius: 0 !important;
+-    border-bottom-left-radius: 0 !important;
+-    border-left: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover]):not([data-tp-label])[data-tp-float=center-right], .iubenda-tp-btn[data-tp-float][data-tp-anchored][data-tp-hover][data-tp-float=center-right] {
+-    right: 0 !important;
+-    border-top-right-radius: 0 !important;
+-    border-bottom-right-radius: 0 !important;
+-    border-right: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover])[data-tp-label][data-tp-float=center-left], .iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover])[data-tp-label][data-tp-float=center-right] {
+-    margin: 0 !important;
+-    top: 50% !important;
+-    border-bottom-left-radius: 0 !important;
+-    border-bottom-right-radius: 0 !important;
+-    border-bottom: 0 !important;
+-    -webkit-transform-origin: bottom !important;
+-    -ms-transform-origin: bottom !important;
+-    transform-origin: bottom !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover])[data-tp-label][data-tp-float=center-left] {
+-    left: 0 !important;
+-    -webkit-transform: translateY(-50%) rotate(90deg) !important;
+-    -ms-transform: translateY(-50%) rotate(90deg) !important;
+-    transform: translateY(-50%) rotate(90deg) !important;
+-    -webkit-transform-origin: left bottom !important;
+-    -ms-transform-origin: left bottom !important;
+-    transform-origin: left bottom !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-anchored]:not([data-tp-hover])[data-tp-label][data-tp-float=center-right] {
+-    right: 0 !important;
+-    -webkit-transform: translateY(-50%) rotate(-90deg) !important;
+-    -ms-transform: translateY(-50%) rotate(-90deg) !important;
+-    transform: translateY(-50%) rotate(-90deg) !important;
+-    -webkit-transform-origin: right bottom !important;
+-    -ms-transform-origin: right bottom !important;
+-    transform-origin: right bottom !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-float=bottom-left], .iubenda-tp-btn[data-tp-float][data-tp-float=bottom-left] {
+-    bottom: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-float=bottom-left][data-tp-anchored], .iubenda-tp-btn[data-tp-float][data-tp-float=bottom-left][data-tp-anchored] {
+-    border-bottom-left-radius: 0 !important;
+-    border-bottom-right-radius: 0 !important;
+-    border-bottom: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-float=top-left], .iubenda-tp-btn[data-tp-float][data-tp-float=top-right] {
+-    top: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-float=top-left][data-tp-anchored], .iubenda-tp-btn[data-tp-float][data-tp-float=top-right][data-tp-anchored] {
+-    border-top-left-radius: 0 !important;
+-    border-top-right-radius: 0 !important;
+-    border-top: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-float=bottom-left], .iubenda-tp-btn[data-tp-float][data-tp-float=top-left] {
+-    left: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-float=bottom-left], .iubenda-tp-btn[data-tp-float][data-tp-float=top-right] {
+-    right: 0 !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-hover][data-tp-label]:after {
+-    max-width: 0 !important;
+-    overflow: hidden !important;
+-    display: block !important;
+-    padding: 0 !important;
+-    opacity: 0 !important;
+-    -webkit-transition: max-width .6s ease, padding .6s ease, opacity .6s ease !important;
+-    -o-transition: max-width .6s ease, padding .6s ease, opacity .6s ease !important;
+-    transition: max-width .6s ease, padding .6s ease, opacity .6s ease !important
+-}
+-
+-.iubenda-tp-btn[data-tp-float][data-tp-hover][data-tp-label]:hover:after {
+-    max-width: 192px !important;
+-    padding-left: calc(16px + 8px + 8px) !important;
+-    padding-right: 10px !important;
+-    opacity: 1 !important
+-}
+-
+-<
+-/
+-style >
+-< script type
+-
+-=
+-"text/javascript"
+->
+-var _iub
+-
+-=
+-_iub | | []
+-
+-;
+-_iub.csConfiguration
+-
+-=
+-{
+-"cookiePolicyInOtherWindow"
+-:true,
+-
+-"reloadOnConsent"
+-:true,
+-
+-"priorConsent"
+-:false,
+-
+-"consentOnContinuedBrowsing"
+-:false,
+-
+-"enableCMP"
+-:true,
+-
+-"whitelabel"
+-:false,
+-
+-"lang"
+-:
+-
+-"it"
+-,
+-"siteId"
+-:
+-
+-1595674
+-,
+-"cookiePolicyId"
+-:
+-
+-93827873
+-,
+-"banner"
+-: {
+-"position": "bottom", "acceptButtonDisplay": true, "customizeButtonDisplay": true, "applyStyles": false
+-}
+-
+-}
+-;
+-<
+-/
+-script >
+-< script type
+-
+-=
+-"text/javascript"
+-src
+-
+-=
+-"//cdn.iubenda.com/cs/tcf/stub-v2.js"
+-> <
+-
+-/
+-script >
+-< script type
+-
+-=
+-"text/javascript"
+-src
+-
+-=
+-"//cdn.iubenda.com/cs/iubenda_cs.js"
+-charset
+-
+-=
+-"UTF-8"
+-async > <
+-
+-/
+-script >
+\ No newline at end of file
+Index: .idea/deployment.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"PublishConfigData\" autoUpload=\"Always\" serverName=\"wa013\" autoUploadExternalChanges=\"true\">\r\n    <serverData>\r\n      <paths name=\"dev\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa001\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa002-rgo\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa003\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa007\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa011\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa013\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping deploy=\"/europarts.dev.netshoppe.it/europarts\" local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa018\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"wa018-test\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n      <paths name=\"web\">\r\n        <serverdata>\r\n          <mappings>\r\n            <mapping local=\"$PROJECT_DIR$\" web=\"/\" />\r\n          </mappings>\r\n        </serverdata>\r\n      </paths>\r\n    </serverData>\r\n    <option name=\"myAutoUpload\" value=\"ALWAYS\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deployment.xml b/.idea/deployment.xml
+--- a/.idea/deployment.xml	(revision 39a9718016a84434f15c45fbb61d7bfd1bdb66d4)
++++ b/.idea/deployment.xml	(date 1605095638552)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="PublishConfigData" autoUpload="Always" serverName="wa013" autoUploadExternalChanges="true">
++  <component name="PublishConfigData" autoUpload="On explicit save action" serverName="wa013" autoUploadExternalChanges="true">
+     <serverData>
+       <paths name="dev">
+         <serverdata>
+@@ -73,6 +73,6 @@
+         </serverdata>
+       </paths>
+     </serverData>
+-    <option name="myAutoUpload" value="ALWAYS" />
++    <option name="myAutoUpload" value="ON_EXPLICIT_SAVE" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"0bfe322b-492d-4739-b4af-cd97dada173c\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/deployment.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/europarts.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/modules.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/php.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\" doNotAsk=\"true\" synchronizationState=\"SYNCHRONIZE\">\r\n    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>\r\n    <execution />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"composer.json\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"PhpWorkspaceProjectConfiguration\">\r\n    <include_path>\r\n      <path value=\"$PROJECT_DIR$/vendor/vlucas/phpdotenv\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/oscarotero/env\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/roots/bedrock-autoloader\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/roots/wordpress-core-installer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/squizlabs/php_codesniffer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/roots/wp-config\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/roots/wp-password-bcrypt\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/symfony/polyfill-ctype\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/composer\" />\r\n      <path value=\"$PROJECT_DIR$/vendor/phpoption/phpoption\" />\r\n    </include_path>\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1jonPChxq5XoBMfcpYpi4kd9Rvy\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$/web/app/themes/europarts/vendor/jquery\" />\r\n    <property name=\"node.js.detected.package.eslint\" value=\"true\" />\r\n    <property name=\"node.js.detected.package.tslint\" value=\"true\" />\r\n    <property name=\"node.js.path.for.package.eslint\" value=\"project\" />\r\n    <property name=\"node.js.path.for.package.tslint\" value=\"project\" />\r\n    <property name=\"node.js.selected.package.eslint\" value=\"(autodetect)\" />\r\n    <property name=\"node.js.selected.package.tslint\" value=\"(autodetect)\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"org.jetbrains.plugins.github.ui.GithubSettingsConfigurable\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\C.Zurli\\PhpstormProjects\\europarts\\web\\app\\themes\\europarts\\vendor\\jquery\" />\r\n      <recent name=\"C:\\Users\\C.Zurli\\PhpstormProjects\\europarts\\web\\app\\themes\\europarts\\assets\\js\" />\r\n      <recent name=\"C:\\Users\\C.Zurli\\PhpstormProjects\\europarts\\web\\app\\themes\\europarts\\woocommerce\" />\r\n      <recent name=\"C:\\Users\\C.Zurli\\PhpstormProjects\\europarts\\web\\app\\themes\\europarts\\woocommerce\\global\" />\r\n      <recent name=\"C:\\Users\\C.Zurli\\PhpstormProjects\\europarts\\web\\app\\themes\\europarts\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"0bfe322b-492d-4739-b4af-cd97dada173c\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1604479286418</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1604479286418</updated>\r\n      <workItem from=\"1604479288775\" duration=\"25804000\" />\r\n      <workItem from=\"1604564193609\" duration=\"28189000\" />\r\n      <workItem from=\"1604650868103\" duration=\"24350000\" />\r\n      <workItem from=\"1605084071768\" duration=\"3364000\" />\r\n      <workItem from=\"1605094917107\" duration=\"1873000\" />\r\n      <workItem from=\"1605098345404\" duration=\"220000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 39a9718016a84434f15c45fbb61d7bfd1bdb66d4)
++++ b/.idea/workspace.xml	(date 1605099358498)
+@@ -2,11 +2,11 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="0bfe322b-492d-4739-b4af-cd97dada173c" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/europarts.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/assets/css/europarts.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/assets/css/europarts.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/global/quantity-input.php" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/single-product/pippo.css" beforeDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -85,7 +85,7 @@
+       <workItem from="1604650868103" duration="24350000" />
+       <workItem from="1605084071768" duration="3364000" />
+       <workItem from="1605094917107" duration="1873000" />
+-      <workItem from="1605098345404" duration="220000" />
++      <workItem from="1605098345404" duration="1000000" />
+     </task>
+     <servers />
+   </component>
+Index: web/app/themes/europarts/assets/css/europarts.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>body {\r\n\r\n    font-family: 'Work Sans', sans-serif;\r\n    font-size: 0.9rem;\r\n    color: #233559;\r\n    line-height: 1.4rem !important;\r\n}\r\n\r\na, a:hover {\r\n    color: #233559;\r\n    text-decoration: none\r\n}\r\n\r\na.button1 {\r\n    display: inline-block;\r\n    color: #233559;\r\n    background: #FFFFFF;\r\n    border-radius: 20px;\r\n    padding: 0.3rem 2rem;\r\n    font-weight: bold;\r\n    text-decoration: none\r\n}\r\n\r\nul, ol, li {\r\n    margin: 0;\r\n    padding: 0;\r\n    line-height: 1.8rem\r\n}\r\n\r\nh1 {\r\n    font-size: 2rem;\r\n    margin-bottom: 1rem\r\n}\r\n\r\nh2 {\r\n    font-size: 1.8rem\r\n}\r\n\r\nh3 {\r\n    font-size: 1.5rem\r\n}\r\n\r\n/* header */\r\n.logo {\r\n    max-width: 300px !important;\r\n    width: 100% !important;\r\n}\r\n\r\n.navbar-brand img {\r\n    max-width: 300px;\r\n}\r\n\r\n.main-menu {\r\n    background: #2B9CE6;\r\n    color: #FFFFFF;\r\n}\r\n\r\n.title-featured {\r\n    color: #585858;\r\n    font-size: 1.4rem;\r\n    text-transform: uppercase;\r\n    font-weight: bold\r\n}\r\n\r\n.payoff {\r\n    background: #233559;\r\n    font-size: 1.2rem;\r\n}\r\n\r\n.bg-primary {\r\n    background-color: #2B9CE6 !important;\r\n}\r\n\r\n.bg-grey {\r\n    background: #F6F6F6\r\n}\r\n\r\n.bg-cover {\r\n    background-repeat: no-repeat;\r\n    background-position: center center;\r\n    background-size: cover\r\n}\r\n\r\n.overlay-white {\r\n    background: rgba(245, 245, 245, 0.8)\r\n}\r\n\r\n.sticky.is-sticky {\r\n    position: fixed;\r\n    left: 0;\r\n    right: 0;\r\n    top: 0;\r\n    z-index: 1000;\r\n    width: 100%;\r\n    -webkit-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);\r\n    -moz-box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);\r\n    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);\r\n}\r\n\r\n.slick-arrow {\r\n    width: 30px;\r\n    height: 30px;\r\n    border-radius: 50%;\r\n    background-color: #ffffff;\r\n    color: #2E2E2E;\r\n    -webkit-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);\r\n    -moz-box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);\r\n    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.15);\r\n    cursor: pointer;\r\n    position: absolute;\r\n    z-index: 9;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    padding: 6px;\r\n    display: flex;\r\n    justify-content: center;\r\n    align-items: center;\r\n}\r\n\r\n/* breadcrumb */\r\n.breadcrumb {\r\n    flex-wrap: wrap;\r\n    padding: 0;\r\n    margin-bottom: 0;\r\n    background-color: transparent;\r\n    border-radius: 0;\r\n}\r\n\r\n.breadcrumb ol li, .breadcrumb .separator {\r\n    padding: 0 0.4rem;\r\n}\r\n\r\n/* home slider */\r\n\r\n.home-slider .slides .slick-slide {\r\n    position: relative;\r\n}\r\n\r\n.home-slider .slides .slick-slide::before {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(35, 53, 89, 0.5);\r\n    z-index: 9;\r\n}\r\n\r\n.home-slider .left.slick-arrow {\r\n    left: 10%;\r\n}\r\n\r\n.home-slider .right.slick-arrow {\r\n    right: 10%;\r\n}\r\n\r\n.home-slider .left.slick-arrow img, .home-slider .right.slick-arrow img {\r\n    width: 100%\r\n}\r\n\r\n.icons ul li {\r\n    list-style-type: none;\r\n    display: inline-block\r\n}\r\n\r\n.icons li img {\r\n    width: 32px\r\n}\r\n\r\n.dgwt-wcas-search-wrapp {\r\n    min-width: 400px\r\n}\r\n\r\n#featuredProducts {\r\n    background-color: #F6F6F6\r\n}\r\n\r\n#mega-menu-wrap-main-navigation .mega-menu-toggle .mega-toggle-blocks-right {\r\n    flex: 0;\r\n}\r\n\r\n.slick-track {\r\n    margin-left: 0;\r\n    margin-right: 0;\r\n}\r\n\r\n.home-shop {\r\n    background: #F6F6F6;\r\n}\r\n\r\n.home-featured .left.slick-arrow {\r\n    left: 10px\r\n}\r\n\r\n.home-featured .right.slick-arrow {\r\n    right: 10px\r\n}\r\n\r\n/*\r\n.home-featured .slick-list {\r\n    margin: 0 0.8rem;\r\n    position: relative;\r\n    display: block\r\n}\r\n*/\r\n\r\n.home-featured .slick-list::after {\r\n    position: absolute;\r\n    content: '';\r\n    height: 100%;\r\n    z-index: 9999;\r\n    right: 0;\r\n    top: 0;\r\n    width: 15%;\r\n    background: rgb(246, 246, 246);\r\n    background: linear-gradient(-90deg, rgba(246, 246, 246, 1) 10%, rgba(246, 246, 246, 0) 100%);\r\n}\r\n\r\n/*.home-featured .slick-list .slick-slide { padding: 0.5rem 0.4rem}*/\r\n#featuredProducts\r\n.woocommerce ul.products li.product,\r\n.woocommerce .products .product .shadow-int {\r\n    background: #FFFFFF 0% 0% no-repeat;\r\n    box-shadow: 2px 2px 4px #0000003B;\r\n    text-align: center;\r\n}\r\n\r\n#mainContent {\r\n    background-color: #F6F6F6\r\n}\r\n\r\n.woocommerce img.attachment-woocommerce_thumbnail {\r\n    width: 100%;\r\n    margin-bottom: 1rem\r\n}\r\n\r\n.woocommerce .products .product .price,\r\n.woocommerce .product .price {\r\n    padding-bottom: 0.5rem;\r\n    display: block;\r\n    line-height: normal\r\n}\r\n\r\n.woocommerce .products .product .price ins, .woocommerce ul.products li.product .price del,\r\n.woocommerce .product .price ins, .woocommerce .product .price del {\r\n    color: #3A6FD9 !important;\r\n    display: block !important;\r\n    font-size: 1.2rem !important;\r\n}\r\n\r\n.woocommerce ul.products li.product .price del, .woocommerce .product .price del {\r\n    color: #D1D1D1 !important;\r\n    opacity: 1 !important;\r\n}\r\n\r\n.woocommerce .products .product .price ins, .woocommerce .product .price ins {\r\n    font-size: 1.3rem !important;\r\n    text-decoration: none !important;\r\n}\r\n\r\n.woocommerce .products .product .quantity {\r\n    display: inline-flex;\r\n    width: 100%;\r\n    justify-content: center\r\n}\r\n\r\n.woocommerce .products .product .price del {\r\n    color: #D1D1D1;\r\n    opacity: 1;\r\n    font-weight: bold\r\n}\r\n\r\n.woocommerce .products .product .price ins {\r\n    font-size: 1.4rem;\r\n    text-decoration: none\r\n}\r\n\r\n.woocommerce .products .product h2 {\r\n    padding: 1rem 0.5rem 0.5rem 0.5rem !important;\r\n    font-size: 0.9rem\r\n}\r\n\r\n.woocommerce .quantity .qty {\r\n    border: 0;\r\n    background: #D1D1D1;\r\n    display: inline-block;\r\n    color: #233559\r\n}\r\n\r\n.woocommerce .products .product .button {\r\n    display: flex;\r\n    justify-content: center;\r\n    min-height: 30px;\r\n    width: auto;\r\n    margin: 0;\r\n    background: #233559;\r\n    color: #FFFFFF;\r\n    font-weight: normal;\r\n    font-size: 0.8rem;\r\n    border-radius: 0;\r\n    text-decoration: none\r\n}\r\n\r\n.woocommerce .products ul, .woocommerce ul.products {\r\n    margin: 0 !important;\r\n}\r\n\r\n.woocommerce .products .product .added_to_cart {\r\n    background-color: grey;\r\n    margin-top: 0.8rem !important;\r\n    padding: 0.3rem 0.4rem !important;\r\n    color: #FFFFFF;\r\n    transition: ease all 0.5s;\r\n}\r\n\r\n.woocommerce .products {\r\n    clear: both\r\n}\r\n\r\n.woocommerce .categories-menu,\r\n.woocommerce-MyAccount-navigation {\r\n    background: #FFFFFF 0% 0% no-repeat padding-box;\r\n    box-shadow: 2px 2px 4px #00000029;\r\n}\r\n\r\n.woocommerce-MyAccount-navigation {\r\n    padding: 1rem 2rem\r\n}\r\n\r\n.woocommerce-MyAccount-navigation ul li {\r\n    list-style-type: none\r\n}\r\n\r\n.woocommerce .filters-menu {\r\n    background: #FFFFFF 0% 0% no-repeat padding-box;\r\n    box-shadow: 2px 2px 4px #00000029;\r\n}\r\n\r\n.product-categories ul.children {\r\n    padding-left: 1rem;\r\n}\r\n\r\n.product-categories > .cat-item {\r\n    font-weight: bold;\r\n    font-size: 0.9rem\r\n}\r\n\r\n.product-categories > .cat-item ul .cat-item {\r\n    font-weight: normal\r\n}\r\n\r\n.woocommerce-pagination {\r\n    margin-top: 2rem\r\n}\r\n\r\n.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button {\r\n    background-color: #233559 !important;\r\n    color: #FFFFFF !important;\r\n    border-radius: 0;\r\n    transition: ease all 0.5s;\r\n}\r\n\r\n.product .product_meta {\r\n    display: block;\r\n    margin-top: 1rem\r\n}\r\n\r\n.product .product_meta .sku_wrapper, .product .product_meta .posted_in {\r\n    display: block;\r\n    color: #999999\r\n}\r\n\r\n.woocommerce .woocommerce-breadcrumb {\r\n    background-color: #FFFFFF;\r\n    background: #FFFFFF 0% 0% no-repeat padding-box;\r\n    box-shadow: 2px 2px 4px #00000029;\r\n    padding: 0.5rem 1.2rem !important;\r\n    color: #233559 !important;\r\n    font-weight: bold;\r\n    margin-bottom: 1.5rem;\r\n}\r\n\r\n.woocommerce .woocommerce-breadcrumb a {\r\n    color: #233559 !important;\r\n    font-weight: normal\r\n}\r\n\r\n.shop-widgets {\r\n    padding: 0.5rem 0\r\n}\r\n\r\n.product-image-wrapper {\r\n    position: relative\r\n}\r\n\r\n.category_children li {\r\n    list-style-type: none;\r\n    font-weight: 300;\r\n}\r\n\r\n#featuredCategory .woocommerce ul.products li {\r\n    clear: none !important;\r\n}\r\n\r\n#featuredCategory .woocommerce .products .product .added_to_cart {\r\n    display: none\r\n}\r\n\r\n#featuredCategory .cat-img-featured {\r\n    position: relative;\r\n    min-height: 300px\r\n}\r\n\r\n#featuredCategory .cat-img-featured::before {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(35, 53, 89, 0.5);\r\n    z-index: 1;\r\n}\r\n\r\n#featuredCategory .cat-img-featured > img {\r\n    object-fit: cover\r\n}\r\n\r\n#featuredCategory .cat-img-featured #svg-home {\r\n    width: 50%;\r\n    position: absolute;\r\n    bottom: -1px;\r\n    right: -1px;\r\n    z-index: 2;\r\n}\r\n\r\n#featuredCategory .cat-text-featured {\r\n    color: #FFFFFF;\r\n    font-weight: 300;\r\n    font-size: 1.4rem;\r\n    text-align: center;\r\n    position: absolute;\r\n    z-index: 3;\r\n    left: 0;\r\n    top: 50%;\r\n    transform: translateY(-50%)\r\n}\r\n\r\n.vline {\r\n    position: absolute;\r\n    right: 0;\r\n    top: 50%;\r\n    transform: translateY(-50%);\r\n    height: 110px;\r\n    width: 2px;\r\n    background: #2B9CE6;\r\n}\r\n\r\ninput, textarea {\r\n    box-shadow: 2px 2px 4px #00000029;\r\n    font-family: 'Work Sans', sans-serif !important;\r\n}\r\n\r\ninput[type=submit] {\r\n    background-color: #2B9CE6 !important;\r\n    color: #FFFFFF !important;\r\n    border: 1px solid #2B9CE6 !important;\r\n}\r\n\r\ninput[inputmode=numeric] {\r\n    border-radius: 0;\r\n    box-shadow: 0px 0px 0px;\r\n    padding: 4px 2px\r\n}\r\n\r\n.overlay-blu::before {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(35, 53, 89, 0.7);\r\n    z-index: 2;\r\n}\r\n\r\n.overlay-light-blu::before {\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    content: '';\r\n    width: 100%;\r\n    height: 100%;\r\n    background: rgba(43, 156, 230, 0.8);\r\n    z-index: 2;\r\n}\r\n\r\n#utilities .utilities-text-container {\r\n    width: 100%;\r\n    position: absolute;\r\n    z-index: 3;\r\n    color: #FFFFFF;\r\n    padding: 2rem;\r\n    left: 0;\r\n    top: 50%;\r\n    transform: translateY(-50%)\r\n}\r\n\r\n#utilities .utilities-text-container span {\r\n    display: block\r\n}\r\n\r\n#utilities .utilities-text-container .utilities-title {\r\n    color: #FFFFFF;\r\n    font-size: 1.4rem;\r\n}\r\n\r\n#brands div[class*='col-'] {\r\n    min-height: 150px;\r\n    border: 1px solid #E5E5E5;\r\n}\r\n\r\n.ball {\r\n    display: block;\r\n    width: 60px;\r\n    height: 60px;\r\n    background: #3A30C9 0% 0% no-repeat;\r\n    border: 1px solid #707070;\r\n    border-radius: 50%;\r\n    margin: 0 auto\r\n}\r\n\r\n.woocommerce span.onsale {\r\n    min-height: auto;\r\n    min-width: auto;\r\n    padding: 0.2rem 0.7rem;\r\n    font-weight: normal;\r\n    line-height: normal;\r\n    border-radius: 0;\r\n    background-color: #3A6FD9;\r\n    color: #fff;\r\n    font-size: 0.7rem;\r\n    z-index: 9;\r\n    top: auto;\r\n    bottom: 20px;\r\n    left: 0;\r\n}\r\n\r\n.cart-contents {\r\n    position: relative;\r\n    display: flex !important;\r\n    flex-flow: column nowrap;\r\n    justify-content: end;\r\n    text-align: right;\r\n    width: auto;\r\n    height: auto;\r\n}\r\n\r\n.cart-contents:hover {\r\n    text-decoration: none;\r\n}\r\n\r\n.cart-contents-count {\r\n    position: absolute;\r\n    display: flex;\r\n    align-items: center;\r\n    justify-content: center;\r\n    top: -10px;\r\n    right: -10px;\r\n    font-weight: normal;\r\n    font-size: 12px;\r\n    height: 22px;\r\n    width: 22px;\r\n    vertical-align: middle;\r\n    text-align: center;\r\n    color: #FFFFFF;\r\n    background: #2b9ce6;\r\n    border-radius: 50%;\r\n    padding: 1px;\r\n    border: 0px solid #000;\r\n}\r\n\r\n.woocommerce .quantity input::-webkit-outer-spin-button,\r\n.woocommerce .quantity input::-webkit-inner-spin-button {\r\n    display: none !important;\r\n    margin: 0 !important;\r\n}\r\n\r\n.woocommerce .quantity input.qty {\r\n    appearance: textfield !important;\r\n    -webkit-appearance: none !important;\r\n    -moz-appearance: textfield !important;\r\n}\r\n\r\n.woocommerce .quantity {\r\n    background: #d1d1d1;\r\n    padding: 0 0.2rem;\r\n    display: inline-flex\r\n}\r\n\r\n.woocommerce .quantity button {\r\n    border: 0;\r\n    font-size: 1.4rem\r\n}\r\n\r\nfooter, .footer {\r\n    background: #233559;\r\n    color: #FFFFFF\r\n}\r\n\r\n/* Underline From Left */\r\n.hvr-underline-from-left {\r\n    display: inline-block;\r\n    vertical-align: middle;\r\n    -webkit-transform: perspective(1px) translateZ(0);\r\n    transform: perspective(1px) translateZ(0);\r\n    box-shadow: 0 0 1px rgba(0, 0, 0, 0);\r\n    position: relative;\r\n    overflow: hidden;\r\n}\r\n\r\n.hvr-underline-from-left:before {\r\n    content: \"\";\r\n    position: absolute;\r\n    z-index: -1;\r\n    left: 0;\r\n    right: 100%;\r\n    bottom: 0;\r\n    background: #2098D1;\r\n    height: 3px;\r\n    -webkit-transition-property: right;\r\n    transition-property: right;\r\n    -webkit-transition-duration: 0.3s;\r\n    transition-duration: 0.3s;\r\n    -webkit-transition-timing-function: ease-out;\r\n    transition-timing-function: ease-out;\r\n}\r\n\r\n.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {\r\n    right: 0;\r\n}\r\n\r\n.row.equal {\r\n    display: flex;\r\n    flex-wrap: wrap;\r\n}\r\n\r\n/* MEDIA QUERIES */\r\n@media (min-width: 1400px) {\r\n    .container {\r\n        max-width: 1340px;\r\n    }\r\n}\r\n\r\n@media (max-width: 991px) {\r\n    .dgwt-wcas-search-wrapp {\r\n        min-width: auto\r\n    }\r\n}\r\n\r\n@media (max-width: 767px) {\r\n    .icons li img {\r\n        width: 20px;\r\n    }\r\n}\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/web/app/themes/europarts/assets/css/europarts.css b/web/app/themes/europarts/assets/css/europarts.css
+--- a/web/app/themes/europarts/assets/css/europarts.css	(revision 39a9718016a84434f15c45fbb61d7bfd1bdb66d4)
++++ b/web/app/themes/europarts/assets/css/europarts.css	(date 1605099358128)
+@@ -203,7 +203,7 @@
+     position: relative;
+     display: block
+ }
+-*/
++
+ 
+ .home-featured .slick-list::after {
+     position: absolute;
+@@ -216,7 +216,7 @@
+     background: rgb(246, 246, 246);
+     background: linear-gradient(-90deg, rgba(246, 246, 246, 1) 10%, rgba(246, 246, 246, 0) 100%);
+ }
+-
++*/
+ /*.home-featured .slick-list .slick-slide { padding: 0.5rem 0.4rem}*/
+ #featuredProducts
+ .woocommerce ul.products li.product,
