@@ -44,13 +44,13 @@ function custom_shop_page_add_quantity_field() {
 	}
 }
 
-add_action( 'woocommerce_before_shop_loop_item_title', 'custom_shop_page_add_quantity_field', 12 );
+add_action( 'woocommerce_after_shop_loop_item', 'custom_shop_page_add_quantity_field',8 );
 
 
-remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 13 );
-remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
-add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 11 );
+//remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+//add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_add_to_cart', 13 );
+//remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10 );
+//add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 11 );
 
 //aggiornamento ajax quantità sull'icona carrello//
 add_filter( 'woocommerce_add_to_cart_fragments', 'woo_cart_but_count' );
@@ -152,6 +152,14 @@ function jk_related_products_args( $args ) {
 
 	return $args;
 }
+
+/*
+add_filter('woocommerce_product_add_to_cart_text', 'changeTextWoo' );
+function changeTextWoo($icon = null): string
+{
+    return esc_html('<img src="'.get_template_directory_uri().'/assets/images/button-cart.png">');
+}
+*/
 
 
 

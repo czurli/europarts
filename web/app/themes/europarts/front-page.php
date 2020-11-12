@@ -2,8 +2,22 @@
 
     <section class="home-slider d-none d-lg-block" id="homeSlider">
         <div class="slides">
-            <img src="http://europarts.dev.netshoppe.it/app/uploads/2020/11/home1.jpg">
-            <img src="http://europarts.dev.netshoppe.it/app/uploads/2020/11/home1.jpg">
+                <div class="slide">
+                <img src="http://europarts.dev.netshoppe.it/app/uploads/2020/11/home1.jpg">
+                <div class="slide-content">
+                    <span class="slide-title py-3">Più di 5.000 prodotti in magazzino</span>
+                    <span class="slide-subtitle py-3">Prodotti pronti per essere spediti, tutto in pronta consegna.</span>
+                    <div class="pt-5"><a href="#" class="button1">Scopri</a></div>
+                </div>
+                </div>
+            <div class="slide">
+                <img src="http://europarts.dev.netshoppe.it/app/uploads/2020/11/home1.jpg">
+                <div class="slide-content">
+                    <span class="slide-title py-3">Più di 5.000 prodotti in magazzino</span>
+                    <span class="slide-subtitle py-3">Prodotti pronti per essere spediti, tutto in pronta consegna.</span>
+                    <div class="pt-5"><a href="#" class="button1">Scopri</a></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -76,10 +90,11 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
 						?>
                         <ul class="category_children">
 							<?php
-
-							foreach ( $category_children_ids as $category_child_id ) {
-								$child_category = get_the_category_by_ID( $category_child_id );
-								echo '<li>' . $child_category . '</li>';
+							for ($i = 0; $i < count($category_children_ids); $i++) {
+								$child_category = get_term( $category_children_ids[$i] );
+								?>
+								<li <?php wc_product_cat_class() ?>><?php echo $child_category->name  ?></li>
+							<?php
 							}
 							?>
                         </ul>

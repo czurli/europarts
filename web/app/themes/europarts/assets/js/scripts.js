@@ -94,6 +94,10 @@
     }
     $('.woocommerce-product-gallery__wrapper').append($('.onsale'));
 
+    $(".add_to_cart_button").wrap("<div class='cart-wrapper'></div>");
+    $('.product .shadow-int').each(function () {
+        $(this).children(".cart-wrapper").prepend($(this).children('.quantity'));
+    })
     qtyFunc();
 
 })(jQuery);
