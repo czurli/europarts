@@ -1,25 +1,33 @@
 <?php get_header() ?>
 
+<?php
+$slider_repeater = get_field('slide_repeater');
+if ($slider_repeater) {
+    ?>
     <section class="home-slider d-none d-lg-block" id="homeSlider">
         <div class="slides">
-                <div class="slide">
-                <img src="http://europarts.dev.netshoppe.it/app/uploads/2020/11/home1.jpg">
-                <div class="slide-content">
-                    <span class="slide-title py-3">Più di 5.000 prodotti in magazzino</span>
-                    <span class="slide-subtitle py-3">Prodotti pronti per essere spediti, tutto in pronta consegna.</span>
-                    <div class="pt-5"><a href="#" class="button1">Scopri</a></div>
-                </div>
-                </div>
-            <div class="slide">
-                <img src="http://europarts.dev.netshoppe.it/app/uploads/2020/11/home1.jpg">
-                <div class="slide-content">
-                    <span class="slide-title py-3">Più di 5.000 prodotti in magazzino</span>
-                    <span class="slide-subtitle py-3">Prodotti pronti per essere spediti, tutto in pronta consegna.</span>
-                    <div class="pt-5"><a href="#" class="button1">Scopri</a></div>
-                </div>
+    <?php
+    foreach ($slider_repeater as $slide) {
+        ?>
+        <div class="slide">
+            <img src="<?php echo $slide['foto_slider']['url']?>" class="img-fluid w-100">
+            <div class="slide-content">
+                <span class="slide-title py-3"><?php echo $slide['titolo_slider']?></span>
+                <span class="slide-subtitle py-3"><?php echo $slide['descrizione_slider']?></span>
+                <div class="pt-5"><a href="<?php echo $slide['link_slider']?>" class="button1">Scopri</a></div>
             </div>
         </div>
+            <?php
+
+    }
+    ?>
+        </div>
     </section>
+<?php
+}
+?>
+
+
 
     <section class="py-3 pt-lg-4 pb-lg-5 " id="featuredProducts">
         <div class="container">
@@ -108,7 +116,7 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
 					$image  = wp_get_attachment_image_src( $cat_id, 'large' );
 					?>
                     <div class="cat-img-featured h-100 bg-cover" style="background-image: url('<?php echo $image[0] ?>')">
-                        <svg version="1.1" id="svg-home" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="d-none d-lg-block" version="1.1" id="svg-home" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 358.41 358.41" style="enable-background:new 0 0 358.41 358.41;"
                              xml:space="preserve">
@@ -155,7 +163,8 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
 							} else {
 								echo __( 'No products' );
 							}
-							wp_reset_postdata();
+                            wp_reset_postdata();
+                            wp_reset_query();
 							?>
                         </ul>
                     </div>
@@ -318,7 +327,7 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
 					$image  = wp_get_attachment_image_src( $cat_id, 'large' );
 					?>
                     <div class="cat-img-featured h-100 bg-cover" style="background-image: url('<?php echo $image[0] ?>')">
-                        <svg version="1.1" id="svg-home" xmlns="http://www.w3.org/2000/svg"
+                        <svg class="d-none d-lg-block" version="1.1" id="svg-home" xmlns="http://www.w3.org/2000/svg"
                              xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                              viewBox="0 0 358.41 358.41" style="enable-background:new 0 0 358.41 358.41;"
                              xml:space="preserve">

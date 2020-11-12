@@ -153,13 +153,33 @@ function jk_related_products_args( $args ) {
 	return $args;
 }
 
-/*
+
 add_filter('woocommerce_product_add_to_cart_text', 'changeTextWoo' );
 function changeTextWoo($icon = null): string
 {
-    return esc_html('<img src="'.get_template_directory_uri().'/assets/images/button-cart.png">');
+    return esc_html('Aggiungi');
 }
-*/
 
+function wpb_custom_billing_fields( $fields = array() ) {
+    unset($fields['billing_address_2']);
+    return $fields;
+}
+add_filter('woocommerce_billing_fields','wpb_custom_billing_fields');
 
+function wpb_custom_shipping_fields( $fields = array() ) {
+    unset($fields['shipping_address_2']);
+    return $fields;
+}
+add_filter('woocommerce_shipping_fields','wpb_custom_shipping_fields');
 
+add_filter( 'woocommerce_billing_fields' , 'custom_override_default_billing_address_fields' );
+function custom_override_default_billing_address_fields( $address_fields ) {
+    $address_fields['billing_company']['required'] = true;
+    return $address_fields;
+}
+
+add_filter( 'woocommerce_shipping_fields' , 'custom_override_default_shipping_address_fields' );
+function custom_override_default_shipping_address_fields( $address_fields ) {
+    $address_fields['shipping_company']['required'] = true;
+    return $address_fields;
+}

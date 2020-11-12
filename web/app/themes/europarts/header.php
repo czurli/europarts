@@ -44,10 +44,16 @@
                         </a>
                         <a href="<?php echo wc_get_cart_url() ?>"><img src="<?php echo get_template_directory_uri() ?>/assets/images/shopping-cart.png">
                     </li>
-                    <li class="px-2"><a href=""><img
+                    <li class="px-2">
+                        <a href="">
+
+                            <img
                                     src="<?php echo get_template_directory_uri() ?>/assets/images/heart.png"></a></li>
-                    <li class="px-2"><a href=""><img
-                                    src="<?php echo get_template_directory_uri() ?>/assets/images/user.png"></a></li>
+                    <li class="px-2">
+                        <a href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">
+                            <img src="<?php echo get_template_directory_uri() ?>/assets/images/user.png">
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>

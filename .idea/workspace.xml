@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bfe322b-492d-4739-b4af-cd97dada173c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/assets/images/button-cart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/checkout/form-checkout.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/myaccount/form-login.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/myaccount/my-address.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/order/order-details-customer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/assets/css/europarts.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/assets/css/europarts.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/assets/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/assets/js/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/front-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/front-page.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/header.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/inc/woocommerce-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/inc/woocommerce-functions.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/content-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/content-product.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +69,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/app/themes/europarts/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/order" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -76,11 +81,14 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\woocommerce\order" />
+      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\plugins" />
+      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\woocommerce\myaccount" />
+      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\woocommerce\checkout" />
       <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\assets\images" />
-      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\woocommerce\loop" />
-      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\vendor\jquery" />
-      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\assets\js" />
-      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\woocommerce" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\C.Zurli\PhpstormProjects\europarts\web\app\themes\europarts\woocommerce\order" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -97,6 +105,7 @@
       <workItem from="1605084071768" duration="3364000" />
       <workItem from="1605094917107" duration="1873000" />
       <workItem from="1605098345404" duration="220000" />
+      <workItem from="1605173588337" duration="18837000" />
     </task>
     <task id="LOCAL-00001" summary="deleted">
       <created>1605099542539</created>
@@ -112,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605101565055</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="11/11/2020">
+      <created>1605173625712</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1605173625712</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deleted" />
     <MESSAGE value="update after woocommerce update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update after woocommerce update" />
+    <MESSAGE value="11/11/2020" />
+    <option name="LAST_COMMIT_MESSAGE" value="11/11/2020" />
   </component>
 </project>

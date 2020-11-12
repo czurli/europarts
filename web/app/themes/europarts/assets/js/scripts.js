@@ -85,6 +85,8 @@
         $(this).children(".product-image-wrapper").append($(this).children('.onsale'));
     })
     $('.woocommerce .button').addClass('hvr-underline-from-left');
+    $('.woocommerce .edit').addClass('hvr-underline-from-left');
+
 
     if ($(window).width() < 991) {
         $(".mega-toggle-blocks-left").append($(".dgwt-wcas-search-wrapp"));
@@ -94,8 +96,8 @@
     }
     $('.woocommerce-product-gallery__wrapper').append($('.onsale'));
 
-    $(".add_to_cart_button").wrap("<div class='cart-wrapper'></div>");
-    $('.product .shadow-int').each(function () {
+    $(".add_to_cart_button, .single_add_to_cart_button").wrap("<div class='cart-wrapper'></div>");
+    $('.woocommerce .product .shadow-int, .product .summary .cart').each(function () {
         $(this).children(".cart-wrapper").prepend($(this).children('.quantity'));
     })
     qtyFunc();

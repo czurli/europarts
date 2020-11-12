@@ -8,7 +8,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	return;
 }
 ?>
-<div class="col-lg-4 col-6 product p-0">
+<div class="col-lg-6 col-xl-4 col-md-6 col-6 product p-0">
     <div class="shadow-int mx-1 my-2">
 	<?php
 	/**
