@@ -2,17 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bfe322b-492d-4739-b4af-cd97dada173c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/checkout/form-checkout.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/myaccount/form-login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/myaccount/my-address.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/order/order-details-customer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/assets/css/europarts.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/assets/css/europarts.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/assets/js/scripts.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/assets/js/scripts.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/front-page.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/front-page.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/header.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/inc/woocommerce-functions.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/inc/woocommerce-functions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/content-product.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/content-product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/content-product-shop.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/content-product-shop.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/order/order-details-customer.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/app/themes/europarts/woocommerce/order/order-details-customer.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +100,7 @@
       <workItem from="1605084071768" duration="3364000" />
       <workItem from="1605094917107" duration="1873000" />
       <workItem from="1605098345404" duration="220000" />
-      <workItem from="1605173588337" duration="18837000" />
+      <workItem from="1605173588337" duration="22972000" />
     </task>
     <task id="LOCAL-00001" summary="deleted">
       <created>1605099542539</created>
@@ -128,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1605173625712</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="11/11/2020">
+      <created>1605197218936</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1605197218936</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

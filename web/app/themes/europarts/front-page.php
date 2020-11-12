@@ -2,7 +2,7 @@
 
 <?php
 $slider_repeater = get_field('slide_repeater');
-if ($slider_repeater) {
+if (!$slider_repeater) {
     ?>
     <section class="home-slider d-none d-lg-block" id="homeSlider">
         <div class="slides">
@@ -52,10 +52,23 @@ if ($slider_repeater) {
 						'tax_query'      => $tax_query
 					);
 					$loop = new WP_Query( $args );
-					if ( $loop->have_posts() ) {
-						while ( $loop->have_posts() ) : $loop->the_post();
-							wc_get_template_part( 'content', 'product1' );
-						endwhile;
+					if ($loop->have_posts() ) {
+						for ($i = 0; $i < $loop->found_posts; $i++ ) : $loop->the_post();
+						?>
+                        <div class="col-12 product p-0">
+                            <div class="shadow-int mx-1 mx-lg-2 my-2">
+                            <?php woocommerce_template_loop_product_link_open()?>
+                            <?php woocommerce_template_loop_product_thumbnail();?>
+                            <?php woocommerce_template_loop_product_title();?>
+                            <?php woocommerce_template_loop_price();?>
+                            <?php woocommerce_template_loop_product_link_close();?>
+                            <?php woocommerce_quantity_input()?>
+                            <?php woocommerce_template_loop_add_to_cart()?>
+                            </div>
+                        </div>
+                        <?php
+							//wc_get_template_part( 'content', 'product1' );
+						endfor;
 					} else {
 						echo __( 'No featured products' );
 					}
