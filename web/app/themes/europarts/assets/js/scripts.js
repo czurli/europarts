@@ -47,7 +47,7 @@
     let home_featured = $('.home-featured .products');
     if (home_featured.length && home_featured.length > 0) {
         home_featured.slick({
-            slidesToShow: 4,
+            slidesToShow: 5,
             //centerMode: true,
             slidesToScroll: 2,
             lazyLoad: 'ondemand',
@@ -80,27 +80,46 @@
         });
     }
 
+    // gestione "onsale"
     $(".attachment-woocommerce_thumbnail").wrap("<div class='product-image-wrapper'></div>");
     $('.woocommerce-loop-product__link').each(function () {
         $(this).children(".product-image-wrapper").append($(this).children('.onsale'));
     })
+    $('.woocommerce-product-gallery__wrapper').append($('.onsale'));
+
+    // aggiungo effetti css ai bottoni
     $('.woocommerce .button').addClass('hvr-underline-from-left');
     $('.woocommerce .edit').addClass('hvr-underline-from-left');
 
-
+    // barra di ricerca //
     if ($(window).width() < 991) {
         $(".mega-toggle-blocks-left").append($(".dgwt-wcas-search-wrapp"));
         $(".mega-toggle-blocks-center").remove();
     } else {
         $("#ricerca").append($(".dgwt-wcas-search-wrapp"));
     }
-    $('.woocommerce-product-gallery__wrapper').append($('.onsale'));
 
+    // quantità e aggiunta al carrello
     $(".add_to_cart_button, .single_add_to_cart_button").wrap("<div class='cart-wrapper'></div>");
     $('.woocommerce .product .shadow-int, .product .summary .cart').each(function () {
         $(this).children(".cart-wrapper").prepend($(this).children('.quantity'));
     })
+
     qtyFunc();
+
+    //filtra categorie
+    if ($(window).width() < 991) {
+        $("#sidebar-button").click(function () {
+            $(this).toggleClass('active');
+                if ($(this).hasClass('active')) {
+                    $(this).text('Chiudi');
+                } else {
+                    $(this).text('Apri');
+                }
+            $("#sidebar-content").slideToggle("slow", function () {
+            });
+        })
+    }
 
 })(jQuery);
 
@@ -132,4 +151,6 @@ function qtyFunc() {
 jQuery(document.body).on('removed_from_cart updated_cart_totals', function () {
     qtyFunc();
 });
+
+
 

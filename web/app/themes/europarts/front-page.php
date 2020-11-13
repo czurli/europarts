@@ -2,7 +2,7 @@
 
 <?php
 $slider_repeater = get_field('slide_repeater');
-if (!$slider_repeater) {
+if ($slider_repeater) {
     ?>
     <section class="home-slider d-none d-lg-block" id="homeSlider">
         <div class="slides">
@@ -18,7 +18,6 @@ if (!$slider_repeater) {
             </div>
         </div>
             <?php
-
     }
     ?>
         </div>
@@ -27,13 +26,11 @@ if (!$slider_repeater) {
 }
 ?>
 
-
-
     <section class="py-3 pt-lg-4 pb-lg-5 " id="featuredProducts">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col">
-                    <span class="py-3 title-featured text-center d-block"><?php echo __( 'Featured products', 'europarts' ) ?></span>
+                    <span class="py-3 title-featured text-center d-block"><?php echo __( 'In evidenza', 'europarts' ) ?></span>
                 </div>
             </div>
             <div class="woocommerce home-featured">
@@ -84,14 +81,17 @@ if (!$slider_repeater) {
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1>Europarts S.r.l.</h1>
+                    <?php
+                    if(have_posts()):
+                        while (have_posts()): the_post();
+                    ?>
+                    <h1><?php the_title()?></h1>
                     <div class="content">
-                        Migliaia di prodotti, e di soluzioni studiate da personale competente in risposta ai problemi
-                        quotidiani provenienti dal mondo che lavora. Europarts non vende solo prodotti, ma studia ogni
-                        giorno soluzioni da offrire al mondo degli operatori dell'autotrazione, artigianato e industria.
-                        Il tutto è supportato da un catalogo prodotti di facile consultazione che hanno in dotazione i
-                        nostri agenti di vendita.
+                        <?php the_content()?>
                     </div>
+                    <?php
+                        endwhile;
+                        endif; ?>
                 </div>
             </div>
         </div>

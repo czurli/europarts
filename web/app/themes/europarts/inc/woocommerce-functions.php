@@ -101,7 +101,7 @@ add_action( 'woocommerce_after_main_content', 'wptest_woocommerce_wrapper_after'
 
 add_action( 'woocommerce_before_shop_loop', 'loop_start_override', 5 );
 function loop_start_override() {
-	echo '<div class="products row"><div class="col">';
+	echo '<div class="products row no-gutters"><div class="col">';
 }
 
 add_action( 'woocommerce_after_shop_loop', 'loop_end_override', 15 );
@@ -183,3 +183,14 @@ function custom_override_default_shipping_address_fields( $address_fields ) {
     $address_fields['shipping_company']['required'] = true;
     return $address_fields;
 }
+
+add_filter( 'woocommerce_before_output_product_categories' , 'custom_categories_wrapper_start');
+function custom_categories_wrapper_start() {
+   return '<div class="subcategories-container col-12"><div class="row no-gutters">';
+}
+
+add_filter( 'woocommerce_after_output_product_categories' , 'custom_categories_wrapper_close' );
+function custom_categories_wrapper_close() {
+    return '</div></div>';
+}
+

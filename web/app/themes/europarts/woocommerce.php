@@ -21,19 +21,21 @@ if (is_archive()) {
         <div class="clearfix"></div>
 
         <?php
+
         woocommerce_product_loop_start();
 
-        if (is_active_sidebar('shop') && is_archive()) {
+
+        if ((is_active_sidebar('shop-filtri') || is_active_sidebar('shop-categorie')) && is_archive()) {
             ?>
 
-            <div class="col-lg-3 order-2 order-lg-1">
+            <div class="col-lg-3 order-1 order-lg-1">
 
                 <?php
                 do_action('woocommerce_sidebar');
                 ?>
 
             </div>
-            <div class="col-lg-9 order-1 order-lg-2 pb-3">
+            <div class="col-lg-9 order-1 order-lg-1 pb-3">
             <div class="container">
             <div class="row products">
 
