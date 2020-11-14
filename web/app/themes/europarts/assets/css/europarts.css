@@ -289,7 +289,6 @@ h3 {
 .woocommerce .products .product .price ins, .woocommerce ul.products li.product .price del,
 .woocommerce .product .price ins, .woocommerce .product .price del {
     color: #3A6FD9 !important;
-    display: block !important;
     font-size: 1rem !important;
 }
 
