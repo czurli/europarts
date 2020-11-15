@@ -151,6 +151,7 @@ h3 {
 .home-slider .slick-slide img {
     display: inline-block;
     object-fit: cover;
+    height: 100%;
 }
 
 .home-slider .slides .slick-slide .slide {
@@ -239,13 +240,9 @@ h3 {
     right: 10px
 }
 
-/*
 .home-featured .slick-list {
-    margin: 0 0.8rem;
-    position: relative;
-    display: block
+    margin: 0 0.8rem !important;
 }
-*/
 
 /*
 .home-featured .slick-list::after {
@@ -314,7 +311,7 @@ h3 {
 }
 
 .woocommerce .products .product h2 {
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem !important;
+    padding: 0.2rem 0.5rem 0.2rem 0.5rem !important;
     font-size: 0.9rem
 }
 
@@ -375,6 +372,17 @@ h3 {
     text-decoration: none;
     line-height: normal;
     position: relative;
+}
+
+.woocommerce .products .product .button::before {
+    position: absolute;
+    background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pg0KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDE5LjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPg0KPHN2ZyB2ZXJzaW9uPSIxLjEiIGlkPSJDYXBhXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB2aWV3Qm94PSIwIDAgNDUwLjM5MSA0NTAuMzkxIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NTAuMzkxIDQ1MC4zOTE7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxnPg0KCTxnPg0KCQk8Zz4NCgkJCTxwYXRoIGQ9Ik0xNDMuNjczLDM1MC4zMjJjLTI1Ljk2OSwwLTQ3LjAyLDIxLjA1Mi00Ny4wMiw0Ny4wMmMwLDI1Ljk2OSwyMS4wNTIsNDcuMDIsNDcuMDIsNDcuMDINCgkJCQljMjUuOTY5LDAsNDcuMDItMjEuMDUyLDQ3LjAyLTQ3LjAyQzE5MC42OTQsMzcxLjM3NCwxNjkuNjQyLDM1MC4zMjIsMTQzLjY3MywzNTAuMzIyeiBNMTQzLjY3Myw0MjMuNDY1DQoJCQkJYy0xNC40MjcsMC0yNi4xMjItMTEuNjk1LTI2LjEyMi0yNi4xMjJjMC0xNC40MjcsMTEuNjk1LTI2LjEyMiwyNi4xMjItMjYuMTIyYzE0LjQyNywwLDI2LjEyMiwxMS42OTUsMjYuMTIyLDI2LjEyMg0KCQkJCUMxNjkuNzk2LDQxMS43NywxNTguMSw0MjMuNDY1LDE0My42NzMsNDIzLjQ2NXoiLz4NCgkJCTxwYXRoIGQ9Ik0zNDIuMjA0LDM1MC4zMjJjLTI1Ljk2OSwwLTQ3LjAyLDIxLjA1Mi00Ny4wMiw0Ny4wMmMwLDI1Ljk2OSwyMS4wNTIsNDcuMDIsNDcuMDIsNDcuMDJzNDcuMDItMjEuMDUyLDQ3LjAyLTQ3LjAyDQoJCQkJQzM4OS4yMjQsMzcxLjM3NCwzNjguMTczLDM1MC4zMjIsMzQyLjIwNCwzNTAuMzIyeiBNMzQyLjIwNCw0MjMuNDY1Yy0xNC40MjcsMC0yNi4xMjItMTEuNjk1LTI2LjEyMi0yNi4xMjINCgkJCQljMC0xNC40MjcsMTEuNjk1LTI2LjEyMiwyNi4xMjItMjYuMTIyczI2LjEyMiwxMS42OTUsMjYuMTIyLDI2LjEyMkMzNjguMzI3LDQxMS43NywzNTYuNjMxLDQyMy40NjUsMzQyLjIwNCw0MjMuNDY1eiIvPg0KCQkJPHBhdGggZD0iTTQ0OC4yNjEsNzYuMDM3Yy0yLjE3Ni0yLjM3Ny01LjE1My0zLjg2NS04LjM1OS00LjE4TDk5Ljc4OCw2Ny4xNTVMOTAuMzg0LDM4LjQyDQoJCQkJQzgzLjc1OSwxOS4yMTEsNjUuNzcxLDYuMjQzLDQ1LjQ1Myw2LjAyOEgxMC40NDlDNC42NzgsNi4wMjgsMCwxMC43MDYsMCwxNi40NzdzNC42NzgsMTAuNDQ5LDEwLjQ0OSwxMC40NDloMzUuMDA0DQoJCQkJYzExLjM2MSwwLjI1MSwyMS4zNjUsNy41NDYsMjUuMDc4LDE4LjI4Nmw2Ni4zNTEsMjAwLjA5OGwtNS4yMjQsMTIuMDE2Yy01LjgyNywxNS4wMjYtNC4wNzcsMzEuOTM4LDQuNzAyLDQ1LjQ1Mw0KCQkJCWM4LjY5NSwxMy4yNzQsMjMuMzIzLDIxLjQ2NiwzOS4xODQsMjEuOTQzaDIwMy4yMzNjNS43NzEsMCwxMC40NDktNC42NzgsMTAuNDQ5LTEwLjQ0OWMwLTUuNzcxLTQuNjc4LTEwLjQ0OS0xMC40NDktMTAuNDQ5DQoJCQkJSDE3NS41NDNjLTguOTU3LTAuMjI0LTE3LjIwMi00LjkzNi0yMS45NDMtMTIuNTM5Yy00LjY4OC03LjUxLTUuNjUxLTE2Ljc2Mi0yLjYxMi0yNS4wNzhsNC4xOC05LjQwNGwyMTkuOTUxLTIyLjk4OA0KCQkJCWMyNC4xNi0yLjY2MSw0NC4wMzQtMjAuMjMzLDQ5LjYzMy00My44ODZsMjUuMDc4LTEwNS4wMTJDNDUwLjk2LDgxLjg5Myw0NTAuMzYsNzguNDkyLDQ0OC4yNjEsNzYuMDM3eiBNNDA0LjM3NiwxODUuMjI4DQoJCQkJYy0zLjM5MiwxNS4yMjYtMTYuMzE5LDI2LjQ1Ny0zMS44NjksMjcuNjlsLTIxNy4zMzksMjIuNDY1TDEwNi41OCw4OC4wNTNsMzIwLjI2MSw0LjcwMkw0MDQuMzc2LDE4NS4yMjh6Ii8+DQoJCTwvZz4NCgk8L2c+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8Zz4NCjwvZz4NCjxnPg0KPC9nPg0KPGc+DQo8L2c+DQo8L3N2Zz4NCg==');
+    background-repeat: no-repeat;
+    background-color: #233559;
+    top:0;
+    left: 0;
+    width:100%;
+    height: 100%;
 }
 
 .woocommerce .products ul, .woocommerce ul.products {

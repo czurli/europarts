@@ -35,6 +35,7 @@ if ($slider_repeater) {
             </div>
             <div class="woocommerce home-featured">
                 <div class="products row">
+
 					<?php
 					$tax_query[] = array(
 						'taxonomy' => 'product_visibility',
@@ -114,7 +115,9 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
 							for ($i = 0; $i < count($category_children_ids); $i++) {
 								$child_category = get_term( $category_children_ids[$i] );
 								?>
-								<li <?php wc_product_cat_class() ?>><?php echo $child_category->name  ?></li>
+                                <li <?php wc_product_cat_class() ?>>
+                                    <a href="<?php echo get_category_link($child_category->term_id)?>"><?php echo $child_category->name  ?></a>
+                                </li>
 							<?php
 							}
 							?>
@@ -139,7 +142,7 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
                         </svg>
                         <div class="cat-text-featured p-4">
                             <p>Tutti i migliori accessori per xxxxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxx</p>
-                            <div class="pt-5"><a href="#" class="button1">Scopri</a></div>
+                            <div class="pt-5"><a href="<?php echo get_category_link($category_selected)?>" class="button1">Scopri</a></div>
                         </div>
                     </div>
                 </div>
@@ -326,7 +329,7 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
 
 							foreach ( $category_children_ids as $category_child_id ) {
 								$child_category = get_the_category_by_ID( $category_child_id );
-								echo '<li>' . $child_category . '</li>';
+								echo '<li><a href='.get_category_link($category_child_id).'>' . $child_category . '</a></li>';
 							}
 							?>
                         </ul>
@@ -350,7 +353,7 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
                         </svg>
                         <div class="cat-text-featured p-4">
                             <p>Tutti i migliori accessori per xxxxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxx</p>
-                            <div class="pt-5"><a href="#" class="button1">Scopri</a></div>
+                            <div class="pt-5"><a href="<?php echo get_category_link($category_selected)?>" class="button1">Scopri</a></div>
                         </div>
 
                     </div>
