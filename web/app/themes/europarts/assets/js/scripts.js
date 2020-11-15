@@ -124,13 +124,13 @@
                     $(this).text('Chiudi');
                     $('html, body').animate({
                         scrollTop: $('#sidebar-bar').offset().top - $('#header').height() - 10 + 'px'
-                    }, 1000);
+                    }, 700);
                     $('body, html').css('overflowY','hidden');
                 } else {
                     $(this).text('Apri');
                     $('body, html').css('overflowY','auto');
                 }
-            $("#sidebar-content").slideToggle("slow", function () {
+            $("#sidebar-content").slideToggle(300, function () {
 
             });
         });
