@@ -1,0 +1,99 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"801d2eb7-2f67-4ecb-98e2-33ca60ab7418\" name=\"Default Changelist\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1jjTrcOsuRlJ7lndJgnqUPHGAAz\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"settings.editor.selected.configurable\" value=\"web.server\" />\r\n    <property name=\"vue.rearranger.settings.migration\" value=\"true\" />\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"801d2eb7-2f67-4ecb-98e2-33ca60ab7418\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1604316700783</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1604316700783</updated>\r\n      <workItem from=\"1604316701950\" duration=\"185000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8c592df08012d67301d47028ecbb93288c16e3b3)
++++ b/.idea/workspace.xml	(date 1605364468118)
+@@ -13,7 +13,27 @@
+   <component name="ComposerSettings">
+     <execution />
+   </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="PhpWorkspaceProjectConfiguration">
++    <include_path>
++      <path value="$PROJECT_DIR$/vendor/roots/bedrock-autoloader" />
++      <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
++      <path value="$PROJECT_DIR$/vendor/roots/wordpress-core-installer" />
++      <path value="$PROJECT_DIR$/vendor/squizlabs/php_codesniffer" />
++      <path value="$PROJECT_DIR$/vendor/roots/wp-config" />
++      <path value="$PROJECT_DIR$/vendor/oscarotero/env" />
++      <path value="$PROJECT_DIR$/vendor/roots/wp-password-bcrypt" />
++      <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
++      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-ctype" />
++      <path value="$PROJECT_DIR$/vendor/composer" />
++    </include_path>
++  </component>
+   <component name="ProjectId" id="1jjTrcOsuRlJ7lndJgnqUPHGAAz" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+@@ -35,9 +55,59 @@
+       <updated>1604316700783</updated>
+       <workItem from="1604316701950" duration="185000" />
+     </task>
++    <task id="LOCAL-00001" summary="14/11/2020">
++      <created>1605364366096</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1605364366096</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="3" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="1">
++          <value>
++            <State>
++              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
++              <option name="FILTERS">
++                <map>
++                  <entry key="branch">
++                    <value>
++                      <list>
++                        <option value="HEAD" />
++                      </list>
++                    </value>
++                  </entry>
++                  <entry key="roots">
++                    <value>
++                      <list>
++                        <option value="$PROJECT_DIR$" />
++                      </list>
++                    </value>
++                  </entry>
++                </map>
++              </option>
++            </State>
++          </value>
++        </entry>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="OPEN_GENERIC_TABS">
++      <map>
++        <entry key="1" value="TOOL_WINDOW" />
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
+ </project>
+\ No newline at end of file
