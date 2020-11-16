@@ -9,7 +9,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 }
 ?>
 <div class="col-xl-3 col-lg-4 col-md-6 col-6 product p-0">
-            <div class="shadow-int mx-1 my-2">
+            <div class="shadow-int mx-1 mx-lg-2 my-2">
 	<?php
 	/**
 	 * Hook: woocommerce_before_shop_loop_item.

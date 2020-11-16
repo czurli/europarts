@@ -107,19 +107,30 @@
 
     qtyFunc();
 
+    var sidebar = $('#sidebar-bar');
+    if ((sidebar.length) > 0){
+        var sidebarPos = 0;
+        $(window).scroll(function(){
+            sidebarPos = header.offset().top
+            console.log('header: '+sidebarPos + ' scroll: ' + $(window).scrollTop());
+        })
+    }
+
     //filtra categorie
     if ($(window).width() < 991) {
         $("#sidebar-button").click(function () {
-            $('html, body').animate({
-                scrollTop: $('#header').offset().top + 'px'
-            }, 1000);
             $(this).toggleClass('active');
                 if ($(this).hasClass('active')) {
                     $(this).text('Chiudi');
+                    $('html, body').animate({
+                        scrollTop: $('#sidebar-bar').offset().top - $('#header').height() - 10 + 'px'
+                    }, 700);
+                    $('body, html').css('overflowY','hidden');
                 } else {
                     $(this).text('Apri');
+                    $('body, html').css('overflowY','auto');
                 }
-            $("#sidebar-content").slideToggle("slow", function () {
+            $("#sidebar-content").slideToggle(300, function () {
 
             });
         });

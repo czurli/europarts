@@ -35,6 +35,7 @@ if ($slider_repeater) {
             </div>
             <div class="woocommerce home-featured">
                 <div class="products row">
+
 					<?php
 					$tax_query[] = array(
 						'taxonomy' => 'product_visibility',
