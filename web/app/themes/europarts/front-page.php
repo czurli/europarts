@@ -35,7 +35,6 @@ if ($slider_repeater) {
             </div>
             <div class="woocommerce home-featured">
                 <div class="products row">
-
 					<?php
 					$tax_query[] = array(
 						'taxonomy' => 'product_visibility',
@@ -106,7 +105,7 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
         <div class="container">
             <div class="row equal">
                 <div class="col-lg-2 py-3 py-lg-0">
-                    <h3><?php echo $main_category = get_the_category_by_ID( $category_selected ); ?></h3>
+                    <h3><a href="<?php echo get_category_link($category_selected) ?>"><?php echo $main_category = get_the_category_by_ID( $category_selected ); ?></a></h3>
 					<?php
 					if ( $category_children_ids ) {
 						?>
@@ -140,8 +139,8 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
                                <path style="fill:#FFFFFF;" d="M0,358.41h358.41V0C358.41,197.95,197.95,358.41,0,358.41z"/>
                            </g>
                         </svg>
-                        <div class="cat-text-featured p-4">
-                            <p>Tutti i migliori accessori per xxxxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxx</p>
+                        <div class="cat-text-featured p-4 text-center w-100">
+                            <p><?php echo wp_trim_words(category_description($category_selected),15) ?></p>
                             <div class="pt-5"><a href="<?php echo get_category_link($category_selected)?>" class="button1">Scopri</a></div>
                         </div>
                     </div>
@@ -320,13 +319,12 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
         <div class="container">
             <div class="row equal">
                 <div class="col-lg-2 py-3 py-lg-0">
-                    <h3><?php echo $main_category = get_the_category_by_ID( $category_selected ); ?></h3>
+                    <h3><a href="<?php echo get_category_link($category_selected) ?>"><?php echo $main_category = get_the_category_by_ID( $category_selected ); ?></a></h3>
 					<?php
 					if ( $category_children_ids ) {
 						?>
                         <ul class="category_children">
 							<?php
-
 							foreach ( $category_children_ids as $category_child_id ) {
 								$child_category = get_the_category_by_ID( $category_child_id );
 								echo '<li><a href='.get_category_link($category_child_id).'>' . $child_category . '</a></li>';
@@ -351,11 +349,10 @@ $category_children_ids = get_term_children( $category_selected, 'product_cat' );
                                <path style="fill:#FFFFFF;" d="M0,358.41h358.41V0C358.41,197.95,197.95,358.41,0,358.41z"/>
                            </g>
                         </svg>
-                        <div class="cat-text-featured p-4">
-                            <p>Tutti i migliori accessori per xxxxxxxxx xxxxxxx xxxxxxx xxxxxxx xxxxxx</p>
+                        <div class="cat-text-featured p-4 text-center w-100">
+                            <p><?php echo wp_trim_words(category_description($category_selected),15) ?></p>
                             <div class="pt-5"><a href="<?php echo get_category_link($category_selected)?>" class="button1">Scopri</a></div>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-6 py-3 py-lg-0">

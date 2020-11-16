@@ -152,7 +152,7 @@ h3 {
     display: inline-block;
     object-fit: cover;
     height: 100%;
-}
+ }
 
 .home-slider .slides .slick-slide .slide {
     position: relative;
@@ -240,9 +240,13 @@ h3 {
     right: 10px
 }
 
+/*
 .home-featured .slick-list {
-    margin: 0 0.8rem !important;
+    margin: 0 0.8rem;
+    position: relative;
+    display: block
 }
+*/
 
 /*
 .home-featured .slick-list::after {
@@ -480,7 +484,7 @@ h3 {
     padding: 0.5rem 1.2rem !important;
     color: #233559 !important;
     font-weight: bold;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .woocommerce .woocommerce-breadcrumb a {
