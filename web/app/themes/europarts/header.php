@@ -6,6 +6,7 @@
     <?php wp_head() ?>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;600&display=swap" rel="stylesheet">
+
     <link href="<?php echo get_template_directory_uri() ?>/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo get_template_directory_uri() ?>/vendor/slick/slick.css">
     <link rel="stylesheet" type="text/css"
@@ -15,15 +16,16 @@
 
 </head>
 <body <?php body_class(); ?>>
-<section>
+<!--<section>
     <div class="container-fluid">
         <div class="row justify-content-center align-items-center">
             <div class="col-12 py-1 text-center text-white payoff">Sconto del 5% sul primo ordine</div>
         </div>
     </div>
 </section>
+-->
 <header>
-    <div class="container-fluid bg-white" data-toggle="sticky-onscroll">
+    <div class="container-fluid bg-white" data-toggle="sticky-onscroll" id="header">
         <div class="row align-items-center py-2">
             <div class="col col-lg-4 text-center text-lg-left py-2">
                 <a href="<?php echo get_home_url()?>"><img src="<?php echo get_template_directory_uri() ?>/assets/images/europarts-logo.png"

@@ -110,6 +110,9 @@
     //filtra categorie
     if ($(window).width() < 991) {
         $("#sidebar-button").click(function () {
+            $('html, body').animate({
+                scrollTop: $('#header').offset().top + 'px'
+            }, 1000);
             $(this).toggleClass('active');
                 if ($(this).hasClass('active')) {
                     $(this).text('Chiudi');
@@ -117,8 +120,9 @@
                     $(this).text('Apri');
                 }
             $("#sidebar-content").slideToggle("slow", function () {
+
             });
-        })
+        });
     }
 
 })(jQuery);
